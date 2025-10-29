@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ZyloHub - Connecting skilled workers and businesses — fast, fair, and commission-free.">
+  <title>ZyloHub - On-Demand Staffing Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- Vertical Navbar (modern design, center right, desktop only) -->
+  <nav class="hidden md:flex flex-col items-center gap-2 fixed top-1/2 right-10 -translate-y-1/2 z-50">
+
+    <!-- Gradient vertical line, runs through dots -->
+    <div
+      class="absolute left-1/2 top-3 h-[calc(100%-1.5rem)] w-[3px] bg-gradient-to-b from-yellow-300 via-gray-700 to-yellow-300 rounded-full -translate-x-1/2 -z-10">
+    </div>
+
+    <!-- Nav Items: each with a dot, animates on active/hover -->
+    <a href="#hero" class="nav-dot group">
+      <span
+        class="dot flex items-center justify-center transition-all duration-300 bg-gray-700 border-2 border-gray-400 hover:border-yellow-300 h-8 w-8 rounded-full shadow cursor-pointer text-xs font-black text-yellow-200 group-active:bg-yellow-400"
+        data-label="zylohub">Z</span>
+    </a>
+    <a href="#message" class="nav-dot group"><span class="dot" data-label="Core Message">M</span></a>
+    <a href="#problem" class="nav-dot group"><span class="dot" data-label="The Problem">P</span></a>
+    <a href="#solution" class="nav-dot group"><span class="dot" data-label="The Solution">S</span></a>
+    <a href="#mission" class="nav-dot group"><span class="dot" data-label="Our Mission">Mi</span></a>
+    <a href="#vision" class="nav-dot group"><span class="dot" data-label="Our Vision">V</span></a>
+    <a href="#hoster" class="nav-dot group"><span class="dot" data-label="Hoster">H</span></a>
+    <a href="#seeker" class="nav-dot group"><span class="dot" data-label="Seeker">Se</span></a>
+    <a href="#how" class="nav-dot group"><span class="dot" data-label="How it works">Hw</span></a>
+    <a href="#features" class="nav-dot group"><span class="dot" data-label="Key Features">F</span></a>
+    <a href="#progress" class="nav-dot group"><span class="dot" data-label="progress">Pr</span></a>
+    <a href="#faq" class="nav-dot group"><span class="dot" data-label="FAQ">Q</span></a>
+    <a href="#footer" class="nav-dot group"><span class="dot" data-label="Footer">Fo</span></a>
+  </nav>
+
+
+  <!-- Fixed Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full h-20 bg-black/95 backdrop-blur z-50 border-b border-white/5">
+    <div class="max-w-[1400px] mx-auto h-full px-10 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3 cursor-pointer">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          ircle cx="20" cy="20" r="20" fill="#"#FFD02B"/>
+          <text x="50%" y="54%" text-anchor="middle" fill="#000" font-size="20" font-family="Inter" font-weight="bold"
+            dy=".3em">Z</text>
+        </svg>
+        <span class="font-extrabold text-xl tracking-wide text-white">ZyloHub</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="hidden md:flex list-none gap-8">
+        <li><a href="#benefits" class="text-white text-base font-medium hover:text-[#FFD02B] transition">About</a>
+        </li>
+        <li><a href="#features" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Features</a>
+        </li>
+        <li><a href="#pricing" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Pre-Launch</a>
+        </li>
+        <li><a href="#faq" class="text-white text-base font-medium hover:text-[#FFD02B] transition">FAQ's</a></li>
+        <li><a href="#testimonials" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Join</a>
+        </li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#waitlist"
+        class="bg-white text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-[#FFD02B] hover:-translate-y-0.5 hover:shadow-lg transition-all hidden md:inline-block">Join
+        Waitlist</a>
+
+      <!-- Mobile Menu Toggle (not expanded for brevity) -->
+      <button class="md:hidden flex flex-col gap-1 p-1 bg-transparent border-0 outline-none">
+        <span class="block w-6 h-1 bg-white rounded"></span>
+        <span class="block w-6 h-1 bg-white rounded"></span>
+        <span class="block w-6 h-1 bg-white rounded"></span>
+      </button>
+    </div>
+  </nav>
+
+
+
+  <!-- Hero Section (200vh) -->
+  <section id="hero"
+    class="min-h-[160vh] bg-black relative overflow-hidden  flex flex-col items-center justify-start">
+    <div class="max-w-[1400px] mx-auto px-10 pt-[100px] flex flex-col items-center text-center relative">
+
+      <!-- Trust Badge -->
+      <div class="inline-flex items-center px-5 py-2 rounded-full bg-[#232323] shadow-lg"
+        style="backdrop-filter: blur(2px);">
+        <div class="flex -space-x-3">
+          <img src="https://i.pravatar.cc/40?img=1" alt="User 1"
+            class="w-8 h-8 rounded-full border-2 border-black bg-pink-200" />
+          <img src="https://i.pravatar.cc/40?img=2" alt="User 2"
+            class="w-8 h-8 rounded-full border-2 border-black bg-yellow-200" />
+          <img src="https://i.pravatar.cc/40?img=3" alt="User 3"
+            class="w-8 h-8 rounded-full border-2 border-black bg-pink-300" />
+        </div>
+        <span class="ml-2 text-white text-md font-medium">Trusted by 10k+ early users</span>
+      </div>
+      <br>
+
+      <!-- Main Headline -->
+      <h1
+        class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-7 tracking-tight max-w-4xl animate-fade-in-up">
+        Connecting skilled workers and businesses
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 font-normal max-w-xl mb-20 animate-fade-in-up">
+        The backbone of the economy, now powered by
+        <span class="relative inline-block font-bold bg-animate px-1">
+          Zylohub
+        </span>.
+      </p>
+
+      <!-- CTA Section -->
+      <div class="relative w-[190%] max-w-[1600px] flex flex-col items-center mb-28 min-h-[900px]">
+
+        <!-- Phones in background, positioned for desktop -->
+        <div
+          class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-between w-full px-[6vw] z-0 pointer-events-none select-none">
+
+          <!-- Left Phone (fade out bottom, rotated) -->
+          <div class="relative hidden md:block w-[22vw] min-w-[220px] max-w-[320px] -rotate-[10deg]">
+            <img src="/assets/images/zylohub-mockup1.png" alt="App Screen Left"
+              class="w-full h-full rounded-[36px] shadow-2xl border-2 border-black object-cover" />
+            <div class="absolute inset-0 rounded-[36px] pointer-events-none"
+              style="background: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 100%);">
+            </div>
+          </div>
+
+
+          <div class="relative hidden md:block w-[22vw] min-w-[220px] max-w-[320px] rotate-[10deg]">
+            <img src="/assets/images/zylohub-mockup2.png" alt="App Screen Right"
+              class="w-full h-full rounded-[36px] shadow-2xl border-2 border-black object-cover" />
+            <div class="absolute inset-0 rounded-[36px] pointer-events-none"
+              style="background: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 100%);">
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- CTA and Center Phone -->
+        <div class="relative flex flex-col items-center z-10 w-full">
+          <!-- CTA Button -->
+          <a href="#waitlist"
+            class="bg-white text-black py-4 px-12 rounded-full font-bold text-lg shadow-lg hover:bg-[#FFD02B] hover:-translate-y-1 transition mb-6">
+            Join Waitlist
+          </a>
+          <!-- App Available For Row -->
+          <div class="flex items-center gap-4 z-10 mb-6">
+            <!-- Info text -->
+            <span class="flex items-center gap-2 text-gray-400 text-[1.12rem] font-medium select-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <circle cx="12" cy="8" r="1" />
+              </svg>
+
+              App Available For
+            </span>
+            <!-- Store icons in a pill -->
+            <div class="flex items-center bg-[#222]/90 rounded-full px-5 py-2 shadow border border-[#333] gap-3">
+              <img width="28" height="28" src="/assets/images/playstore.png" alt="playstore" class="w-7 h-7" />
+              <span class="w-px h-6 bg-gray-600 rounded"></span>
+              <img width="28" height="28" src="/assets/images/appstore.png" alt="appstore" class="w-7 h-7" />
+            </div>
+          </div>
+
+          <!-- Center Phone (mobile always visible, desktop above side phones) -->
+          <div class="flex items-center justify-center w-full mt-4">
+            <div class="relative w-[340px] h-[680px]">
+              <img src="/assets/images/zylohub-main-mockup.png" alt="ZyloHub Mobile Mockup"
+                class="w-full h-full object-cover rounded-[32px] shadow-2xl border-2 border-black" />
+              <!-- Gradient overlay for opacity fade-out at bottom -->
+              <div class="absolute inset-0 rounded-[32px] pointer-events-none"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section id="message" class="w-full bg-black py-20 px-2 flex flex-col items-center justify-center"
+  style="background-image: url('/assets/images/message-background.jpg'); background-size: cover; background-position: center;">
+
+    <div class="flex items-center justify-center w-full my-8">
+      <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
+            style="backdrop-filter: blur(2px);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.3l2.2 6.7H21l-5.3 3.9 2.1 6.7L12 16.8l-5.3 3.8 2.1-6.7L3 10h6.8L12 3.3z"/>
+            </svg>            
+        The core message
+      </span>
+    </div>
+    
+    <!-- Headline -->
+    <h2 class="text-white text-3xl md:text-6xl font-extrabold text-center mb-14 max-w-6xl tracking-tight">
+      We connect businesses with  <span class="text-[#FFD02B]">nearby skilled talent</span> 
+      <span class="inline-block mt-2 text-white">instantly</span>
+    </h2>
+    
+    <!-- Stats - inspired, but use your own data or icons here if needed -->
+    <div class="w-full max-w-3xl grid grid-cols-1 md:grid-row-3 gap-10 md:gap-0">
+      <!-- Middleman -->
+      <div class="flex flex-col items-center px-6 md:px-0">
+        <span class="text-4xl md:text-5xl font-extrabold text-white">0%</span>
+        <span class="mt-2 text-gray-400 text-lg font-medium">
+          <span class="block text-[#FFD02B] font-bold text-center">Middlemen</span>
+          We never take a cut
+        </span>
+      </div>
+      <!-- Divider (desktop only) -->
+      <div class="flex justify-center items-center">
+        <div class="w-px h-16 bg-[#FFD02B]/40"></div>
+      </div>
+      <!-- Commissions -->
+      <div class="flex flex-col items-center px-6 md:px-0">
+        <span class="text-4xl md:text-5xl font-extrabold text-white">₹0</span>
+        <span class="mt-2 text-gray-400 text-lg font-medium">
+          <span class="block text-[#FFD02B] font-bold text-center">Commissions</span>
+          Businesses keep what they pay
+        </span>
+      </div>
+      <!-- Divider (desktop only) -->
+      <div class="flex justify-center items-center">
+        <div class="w-px h-16 bg-[#FFD02B]/40"></div>
+      </div>
+      <!-- Fast/Fair -->
+      <div class="flex flex-col items-center px-6 md:px-0">
+        <span class="text-4xl md:text-5xl font-extrabold text-white">Instant</span>
+        <span class="mt-2 text-gray-400 text-lg font-medium">
+          <span class="block text-[#FFD02B] font-bold text-center">Fair &amp; Fast</span>
+          Financially transparent, always quick
+        </span>
+      </div>
+    </div>
+  </section>
+  
+  
+</body>
+<script src="index.js" type="text/javascript"></script>
+
+</html>
