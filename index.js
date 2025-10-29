@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // IDs must match the hrefs for sections
-const sections = ['hero', 'message', 'features', 'pricing', 'testimonials', 'faq'];
+const sections = ['hero', 'message', 'problem', 'solution', 'features', 'pricing', 'testimonials', 'faq'];
 const navLinks = document.querySelectorAll('.nav-dot');
 
 // Intersection Observer Setup
@@ -74,4 +74,8 @@ function scrollLoop() {
 }
 
 scrollLoop();
-  
+
+
+
+// script.js or inline in <script> after your section
+
