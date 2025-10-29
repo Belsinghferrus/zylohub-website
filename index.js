@@ -46,3 +46,32 @@ sections.forEach(id => {
   const section = document.getElementById(id);
   if (section) observer.observe(section);
 });
+
+
+
+
+
+
+// ========================================
+// INFINITE HORIZONTAL SCROLL EFFECT
+// ========================================
+const scrollContainer = document.getElementById('scroll-content');
+            
+// Duplicate the content exactly the same (no margin difference)
+scrollContainer.innerHTML += scrollContainer.innerHTML;
+
+let scrollPos = 0;
+const scrollStep = 1; // Scroll speed in pixels per frame
+
+function scrollLoop() {
+  scrollPos += scrollStep;
+  // Reset scroll position for seamless effect
+  if (scrollPos >= scrollContainer.scrollWidth / 2) {
+    scrollPos = 0;
+  }
+  scrollContainer.style.transform = `translateX(${-scrollPos}px)`;
+  requestAnimationFrame(scrollLoop);
+}
+
+scrollLoop();
+  

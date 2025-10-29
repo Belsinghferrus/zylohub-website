@@ -50,7 +50,7 @@
 
 
   <!-- Fixed Navigation Bar -->
-  <nav class="fixed top-0 left-0 w-full h-20 bg-black/95 backdrop-blur z-50 border-b border-white/5">
+  <nav class="fixed top-0 left-0 w-full h-20 bg-black/50 backdrop-blur z-50 border-b border-white/5">
     <div class="max-w-[1400px] mx-auto h-full px-10 flex items-center justify-between">
 
       <!-- Logo -->
@@ -93,8 +93,7 @@
 
 
   <!-- Hero Section (200vh) -->
-  <section id="hero"
-    class="min-h-[160vh] bg-black relative overflow-hidden  flex flex-col items-center justify-start">
+  <section id="hero" class="min-h-[150vh] bg-black relative overflow-hidden  flex flex-col items-center justify-start">
     <div class="max-w-[1400px] mx-auto px-10 pt-[100px] flex flex-col items-center text-center relative">
 
       <!-- Trust Badge -->
@@ -192,8 +191,34 @@
             </div>
           </div>
         </div>
+
+
+        <div class="relative w-full max-w-4xl bg-black py-8 overflow-hidden">
+          <!-- Fading overlays on sides (responsive with Tailwind width utilities) -->
+          <!-- Left Fade Overlay (responsive width) -->
+          <div class="pointer-events-none absolute top-0 left-0 h-full w-1/2 sm:w-1/4 max-w-[300px] z-10"
+            style="background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);"></div>
+
+          <!-- Right Fade Overlay (responsive width) -->
+          <div class="pointer-events-none absolute top-0 right-0 h-full w-1/2 sm:w-1/4 max-w-[300px] z-10"
+            style="background: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);"></div>
+          <br>
+          <!-- Infinite Scrolling Text Content -->
+          <div id="infinite-scroll" class="absolute md:relative mx-auto overflow-x-hidden">
+            <div id="scroll-content"
+              class="flex items-center gap-10 whitespace-nowrap text-gray-300 text-base sm:text-2xl font-semibold select-none">
+              <span>🚀 fast</span>
+              <span>🤝 fair</span>
+              <span>💸 commission-free</span>
+              <span>✨ simple</span>
+              <span>➡️ direct</span>
+              <span>✔️ verified</span>
+              <span>🔒 reliable</span>
+              <span>🤲 trust</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 
 
@@ -201,24 +226,26 @@
 
 
   <section id="message" class="w-full bg-black py-20 px-2 flex flex-col items-center justify-center"
-  style="background-image: url('/assets/images/message-background.jpg'); background-size: cover; background-position: center;">
+    style="background-image: url('/assets/images/message-background.jpg'); background-size: cover; background-position: center;">
 
     <div class="flex items-center justify-center w-full my-8">
       <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
-            style="backdrop-filter: blur(2px);">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.3l2.2 6.7H21l-5.3 3.9 2.1 6.7L12 16.8l-5.3 3.8 2.1-6.7L3 10h6.8L12 3.3z"/>
-            </svg>            
+        style="backdrop-filter: blur(2px);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3.3l2.2 6.7H21l-5.3 3.9 2.1 6.7L12 16.8l-5.3 3.8 2.1-6.7L3 10h6.8L12 3.3z" />
+        </svg>
         The core message
       </span>
     </div>
-    
+
     <!-- Headline -->
     <h2 class="text-white text-3xl md:text-6xl font-extrabold text-center mb-14 max-w-6xl tracking-tight">
-      We connect businesses with  <span class="text-[#FFD02B]">nearby skilled talent</span> 
+      We connect businesses with <span class="text-[#FFD02B]">nearby skilled talent</span>
       <span class="inline-block mt-2 text-white">instantly</span>
     </h2>
-    
+
     <!-- Stats - inspired, but use your own data or icons here if needed -->
     <div class="w-full max-w-3xl grid grid-cols-1 md:grid-row-3 gap-10 md:gap-0">
       <!-- Middleman -->
@@ -255,8 +282,8 @@
       </div>
     </div>
   </section>
-  
-  
+
+
 </body>
 <script src="index.js" type="text/javascript"></script>
 

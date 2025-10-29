@@ -93,12 +93,26 @@
   }
 }
 
-.animate-fade-in-left {
-  animation: fadeInLeft 1.2s ease forwards;
-}
 
-.animate-fade-in-right {
-  animation: fadeInRight 1.2s ease forwards;
+
+/* ========================================== */
+/* INFINITY SCROLL ANIMATION - HERO SECTION */
+/* ========================================== */
+
+#infinite-scroll {
+  position: absolute; 
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+#scroll-content {
+  display: flex;
+  gap: 2.5rem; 
+  white-space: nowrap;
+}
+#scroll-content span {
+  display: inline-block;
 }
 
 
