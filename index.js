@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 // NAVIGATION DOTS ACTIVE STATE
 // ========================================
-const sections = ['hero', 'message', 'problem', 'solution', 'about', 'hoster', 'Seeker', 'features', 'pricing', 'testimonials', 'faq'];
+const sections = ['hero', 'message', 'problem', 'solution', 'about', 'hoster', 'Seeker', 'working', 'features', 'pricing', 'testimonials', 'faq'];
 const navLinks = document.querySelectorAll('.nav-dot');
 
 // Intersection Observer Setup
