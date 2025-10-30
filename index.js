@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// IDs must match the hrefs for sections
-const sections = ['hero', 'message', 'problem', 'solution', 'features', 'pricing', 'testimonials', 'faq'];
+
+// ========================================
+// NAVIGATION DOTS ACTIVE STATE
+// ========================================
+const sections = ['hero', 'message', 'problem', 'solution', 'about', 'hoster', 'Seeker', 'features', 'pricing', 'testimonials', 'faq'];
 const navLinks = document.querySelectorAll('.nav-dot');
 
 // Intersection Observer Setup
@@ -56,7 +59,7 @@ sections.forEach(id => {
 // INFINITE HORIZONTAL SCROLL EFFECT
 // ========================================
 const scrollContainer = document.getElementById('scroll-content');
-            
+
 // Duplicate the content exactly the same (no margin difference)
 scrollContainer.innerHTML += scrollContainer.innerHTML;
 
@@ -77,5 +80,32 @@ scrollLoop();
 
 
 
-// script.js or inline in <script> after your section
 
+// ========================================
+// MISSION STATEMENT FADE & SLIDE UP
+// ========================================
+const targets = document.querySelectorAll('.fade-slide-up');
+const options = { threshold: 0.2 };
+const missionObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    }
+  });
+}, options);
+targets.forEach(target => {
+  target.classList.add('opacity-0', 'translate-y-10');
+  missionObserver.observe(target);
+});
+
+
+
+
+const HosterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('[data-animate]').forEach(el => HosterObserver.observe(el));

@@ -1,16 +1,20 @@
-
 .bg-animate {
   background: linear-gradient(90deg, #FFD02B 0%, #FFD02B 100%);
   background-size: 0% 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.7s cubic-bezier(0.48,1.14,0.52,0.92);
-  animation: bgFill 1.2s cubic-bezier(0.48,1.14,0.52,0.92) forwards;
+  transition: background-size 0.7s cubic-bezier(0.48, 1.14, 0.52, 0.92);
+  animation: bgFill 1.2s cubic-bezier(0.48, 1.14, 0.52, 0.92) forwards;
   color: #000;
 }
 
 @keyframes bgFill {
-  from { background-size: 0% 100%; }
-  to { background-size: 100% 100%; }
+  from {
+    background-size: 0% 100%;
+  }
+
+  to {
+    background-size: 100% 100%;
+  }
 }
 
 
@@ -21,16 +25,18 @@
 .nav-dot {
   @apply flex items-center relative;
 }
+
 .dot {
   @apply w-4 h-4 rounded-full border-2 border-gray-500 bg-gray-800 transition;
 }
+
 .nav-dot.active .dot {
   @apply border-yellow-300 bg-yellow-400 shadow-lg;
 }
 
 
 .dot {
-  transition: all 0.3s cubic-bezier(.5,1.5,.5,1);
+  transition: all 0.3s cubic-bezier(.5, 1.5, .5, 1);
   width: 32px;
   height: 32px;
   border-radius: 99px;
@@ -39,19 +45,23 @@
   color: #FFD02B;
   font-weight: bold;
   font-size: .85rem;
-  box-shadow: 0 2px 8px rgba(40,30,30,0.14);
+  box-shadow: 0 2px 8px rgba(40, 30, 30, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   position: relative;
 }
-.nav-dot.active .dot, .nav-dot:focus .dot, .nav-dot:hover .dot {
+
+.nav-dot.active .dot,
+.nav-dot:focus .dot,
+.nav-dot:hover .dot {
   border-color: #FFD02B;
   background: #282828;
   color: #fff;
   box-shadow: 0 0 16px #ffd02b99, 0 2px 8px #222;
 }
+
 .nav-dot .dot::after {
   content: attr(data-label);
   position: absolute;
@@ -67,6 +77,7 @@
   transition: opacity .24s;
   box-shadow: 0 2px 6px #333c;
 }
+
 .nav-dot:hover .dot::after,
 .nav-dot:focus .dot::after {
   opacity: 1;
@@ -80,6 +91,7 @@
     opacity: 0;
     transform: translateX(-24px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -91,6 +103,7 @@
     opacity: 0;
     transform: translateX(24px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -104,17 +117,19 @@
 /* ========================================== */
 
 #infinite-scroll {
-  position: absolute; 
+  position: absolute;
   overflow-x: hidden;
   width: 100%;
   margin: 0 auto;
   padding: 0;
 }
+
 #scroll-content {
   display: flex;
-  gap: 2.5rem; 
+  gap: 2.5rem;
   white-space: nowrap;
 }
+
 #scroll-content span {
   display: inline-block;
 }
@@ -128,13 +143,15 @@
     opacity: 0;
     transform: translateY(-40px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .animate-fade-in-down {
-  animation: fade-in-down 0.6s cubic-bezier(0.65,0,0.35,1) both;
+  animation: fade-in-down 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
 
@@ -143,9 +160,11 @@
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-15px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -157,4 +176,159 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+
+
+/* ========================================== */
+/* MINILINE ANIMATION */
+/* ========================================== */
+@keyframes miniline {
+
+  0%,
+  100% {
+    width: 2rem;
+  }
+
+  50% {
+    width: 4.5rem;
+  }
+}
+
+.animate-miniline {
+  animation: miniline 3s ease-in-out infinite;
+}
+
+
+
+/* MISSION VISION ANIMATIONS
+==========================================   */
+@keyframes subtle-highlight {
+
+  0%,
+  100% {
+    color: #fde047;
+  }
+
+  50% {
+    color: #fffde7;
+  }
+}
+
+@keyframes subtle-highlight-white {
+
+  0%,
+  100% {
+    color: #fff;
+  }
+
+  50% {
+    color: #fde047;
+  }
+}
+
+@keyframes subtle-bold {
+
+  0%,
+  100% {
+    font-weight: 800;
+  }
+
+  40% {
+    font-weight: 800;
+  }
+
+  50% {
+    font-weight: 400;
+  }
+
+  60% {
+    font-weight: 800;
+  }
+}
+
+.subtle-highlight {
+  animation: subtle-highlight 2.8s ease-in-out infinite;
+}
+
+.subtle-highlight-white {
+  animation: subtle-highlight-white 2.7s ease-in-out infinite;
+}
+
+.subtle-bold {
+  animation: subtle-bold 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+
+
+/* Base font-family */
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator bounce */
+@keyframes bounceY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.bounce-y {
+  animation: bounceY 2s ease-in-out infinite;
+}
+
+
+
+
+
+
+/* Button hover effects */
+.download-btn {
+  @apply flex items-center justify-center space-x-2 px-6 py-3 border border-gray-300 rounded-full text-sm font-semibold text-white bg-transparent hover:border-yellow-400 transition-transform transform hover:scale-105;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  box-shadow: 0 0 15px rgba(246, 194, 0, 0.4);
+}
+
+/* Screenshot card shadow */
+.app-card {
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: rotate(-3deg);
+  transition: transform 0.4s ease;
+}
+
+.app-card:hover {
+  transform: rotate(0deg) scale(1.02);
 }
