@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const BANNER_DELAY = 30000; // 30 seconds
+    const BANNER_DELAY = 10000; // 30 seconds
     const BANNER_SHOWN_KEY = 'zylohub_banner_shown';
     const COOKIE_NAME = 'zylohub_cookie_consent';
 
