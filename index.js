@@ -1,4 +1,11 @@
 
+// ========================================
+// AOS INITIALIZATION
+// ========================================
+AOS.init();
+
+
+
 
 // ========================================
 // INTERSECTION OBSERVER FOR ANIMATIONS
@@ -163,3 +170,26 @@ document.getElementById('bannerJoinBtn')?.addEventListener('click', () => {
     banner.classList.remove('show');
   }
 });
+
+
+
+
+
+// ========================================
+// MOBILE MENU TOGGLE
+// ========================================
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const bars = mobileBtn.querySelectorAll('span');
+
+  mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+
+    // Animate hamburger → X
+    bars[0].classList.toggle('rotate-45');
+    bars[0].classList.toggle('translate-y-[8px]');
+    bars[1].classList.toggle('opacity-0');
+    bars[2].classList.toggle('-rotate-45');
+    bars[2].classList.toggle('-translate-y-[8px]');
+  });

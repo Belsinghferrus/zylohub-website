@@ -1,3 +1,11 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+
+
 .bg-animate {
   background: linear-gradient(90deg, #FFD02B 0%, #FFD02B 100%);
   background-size: 0% 100%;

@@ -16,19 +16,79 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="zylohub - Connecting skilled workers and businesses — fast, fair, and commission-free.">
   <title>zylohub - On-Demand Staffing Platform</title>
+  <meta name="description"
+    content="Connect with skilled blue-collar workers. Fast, fair, commission-free jobs. Join 10,000+ early adopters on Zylohub's waitlist.">
+  <meta name="keywords" content="on-demand work, blue collar jobs, staffing platform, gig economy, India, fair work">
+  <meta name="author" content="ZyloHub">
+
+  <!-- Open Graph Tags (Social Media) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ZyloHub - Fair, Transparent On-Demand Staffing Platform">
+  <meta property="og:description"
+    content="Connect with skilled blue-collar workers. Fast, fair, commission-free jobs. Join the waitlist today.">
+  <meta property="og:image" content="https://www.zylohub.com/assets/images/og-image.webp">
+  <meta property="og:url" content="https://www.zylohub.com">
+  <meta property="og:site_name" content="ZyloHub">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZyloHub - Fair On-Demand Staffing">
+  <meta name="twitter:description"
+    content="Connect with skilled workers. Fast, fair, commission-free. Join the waitlist.">
+  <meta name="twitter:image" content="https://www.zylohub.com/assets/images/og-image.webp">
+  <meta name="twitter:creator" content="@zylohub">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./assets/images/favico.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Theme Color (Mobile) -->
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileColor" content="#000000">
+
+  <!-- Canonical URL (Prevents Duplicate Content) -->
+  <link rel="canonical" href="https://www.zylohub.com">
+
+  <!-- ===== STRUCTURED DATA (Schema.org) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zylohub",
+    "alternateName": "ZyloHub",
+    "url": "https://www.zylohub.com",
+    "logo": "https://www.zylohub.com/logo.png",
+    "description": "Fair, transparent on-demand staffing platform connecting businesses with skilled blue-collar workers",
+    "sameAs": [
+      "https://www.twitter.com/zylohub",
+      "https://www.linkedin.com/company/zylohub/",
+      "https://www.instagram.com/zylohub_"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9003552916",
+      "contactType": "Customer Support",
+      "email": "support@zylohub.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "India"
+    }
+  }
+</script>
+
+
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+
 </head>
 
 <body class="bg-black text-white overflow-x-hidden">
@@ -62,43 +122,52 @@
 
 
   <!-- Fixed Navigation Bar -->
-  <nav class="fixed top-0 left-0 w-full h-20 bg-black/50 backdrop-blur z-50 border-b border-white/5">
-    <div class="max-w-[1400px] mx-auto h-full px-10 flex items-center justify-between">
+  <!-- ===== NAVBAR ===== -->
+  <nav class="fixed top-0 left-0 w-full h-20 bg-black/60 backdrop-blur-md border-b border-white/10 z-50 transition-all">
+    <div class="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between bg-black/60 ">
 
       <!-- Logo -->
-      <div class="flex items-center gap-3 cursor-pointer">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          ircle cx="20" cy="20" r="20" fill="#"#FFD02B"/>
-          <text x="50%" y="54%" text-anchor="middle" fill="#000" font-size="20" font-family="Inter" font-weight="bold"
-            dy=".3em">Z</text>
-        </svg>
-        <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span>
-      </div>
+      <a href="#home" class="flex items-center gap-3 cursor-pointer">
+        <img src="https://www.zylohub.com/logo.png" alt="ZyloHub Logo" class="w-12 h-12">
+        <!-- <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span> -->
+      </a>
 
-      <!-- Navigation Links -->
-      <ul class="hidden md:flex list-none gap-8">
-        <li><a href="#benefits" class="text-white text-base font-medium hover:text-[#FFD02B] transition">About</a>
-        </li>
-        <li><a href="#features" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Features</a>
-        </li>
-        <li><a href="#pricing" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Pre-Launch</a>
-        </li>
-        <li><a href="#faq" class="text-white text-base font-medium hover:text-[#FFD02B] transition">FAQ's</a></li>
-        <li><a href="#testimonials" class="text-white text-base font-medium hover:text-[#FFD02B] transition">Join</a>
-        </li>
+      <!-- ===== DESKTOP NAV LINKS ===== -->
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#solution" class="text-white hover:text-[#FFD02B] transition">Zylohub</a></li>
+        <li><a href="#about" class="text-white hover:text-[#FFD02B] transition">About</a></li>
+        <li><a href="#download" class="text-white hover:text-[#FFD02B] transition">Download</a></li>
+        <li><a href="#features" class="text-white hover:text-[#FFD02B] transition">Features</a></li>
+        <li><a href="#faq" class="text-white hover:text-[#FFD02B] transition">FAQ's</a></li>
       </ul>
 
       <!-- CTA Button -->
       <a href="#waitlist"
-        class="bg-white text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-[#FFD02B] hover:-translate-y-0.5 hover:shadow-lg transition-all hidden md:inline-block">Join
-        Waitlist</a>
+        class="hidden md:inline-block bg-[#FFD02B] text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-white hover:-translate-y-0.5 hover:shadow-lg transition-all">
+        Join Waitlist
+      </a>
 
-      <!-- Mobile Menu Toggle (not expanded for brevity) -->
-      <button class="md:hidden flex flex-col gap-1 p-1 bg-transparent border-0 outline-none">
-        <span class="block w-6 h-1 bg-white rounded"></span>
-        <span class="block w-6 h-1 bg-white rounded"></span>
-        <span class="block w-6 h-1 bg-white rounded"></span>
+      <!-- ===== MOBILE MENU TOGGLE ===== -->
+      <button id="mobileMenuBtn"
+        class="md:hidden flex flex-col bg-black  justify-center items-center gap-[6px] w-10 h-10 text-white focus:outline-none transition">
+        <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+        <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+        <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
       </button>
+    </div>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobileMenu"
+      class="absolute top-20 left-0 w-full bg-black/95 backdrop-blur-md border-t border-white/10 hidden flex-col items-center gap-6 py-8 transition-all">
+      <a href="#solution" class="text-white text-lg hover:text-[#FFD02B] transition">Zylohub</a>
+      <a href="#about" class="text-white text-lg hover:text-[#FFD02B] transition">About</a>
+      <a href="#download" class="text-white text-lg hover:text-[#FFD02B] transition">Download</a>
+      <a href="#features" class="text-white text-lg hover:text-[#FFD02B] transition">Features</a>
+      <a href="#faq" class="text-white text-lg hover:text-[#FFD02B] transition">FAQ's</a>
+      <a href="#waitlist"
+        class="bg-[#FFD02B] text-black font-semibold py-3 px-6 rounded-full shadow hover:bg-white transition-all">
+        Join Waitlist
+      </a>
     </div>
   </nav>
 
@@ -261,7 +330,7 @@
     <!-- Stats - inspired, but use your own data or icons here if needed -->
     <div class="w-full max-w-3xl grid grid-cols-1 md:grid-row-3 gap-10 md:gap-0">
       <!-- Middleman -->
-      <div class="flex flex-col items-center px-6 md:px-0">
+      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
         <span class="text-4xl md:text-5xl font-extrabold text-white">0%</span>
         <span class="mt-2 text-gray-400 text-lg font-medium">
           <span class="block text-[#FFD02B] font-bold text-center">Middlemen</span>
@@ -273,7 +342,7 @@
         <div class="w-px h-16 bg-[#FFD02B]/40"></div>
       </div>
       <!-- Commissions -->
-      <div class="flex flex-col items-center px-6 md:px-0">
+      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
         <span class="text-4xl md:text-5xl font-extrabold text-white">₹0</span>
         <span class="mt-2 text-gray-400 text-lg font-medium">
           <span class="block text-[#FFD02B] font-bold text-center">Commissions</span>
@@ -285,7 +354,7 @@
         <div class="w-px h-16 bg-[#FFD02B]/40"></div>
       </div>
       <!-- Fast/Fair -->
-      <div class="flex flex-col items-center px-6 md:px-0">
+      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
         <span class="text-4xl md:text-5xl font-extrabold text-white">Instant</span>
         <span class="mt-2 text-gray-400 text-lg font-medium">
           <span class="block text-[#FFD02B] font-bold text-center">Fair &amp; Fast</span>
@@ -355,7 +424,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl">
 
       <!-- Card 1 -->
-      <div
+      <div data-aos="zoom-in"
         class="group relative rounded-xl bg-gradient-to-br from-transparent via-yellow-600/10 to-yellow-700/5 backdrop-blur-lg border border-yellow-400/20 p-6 flex flex-col items-center text-yellow-100 shadow-2xl transition-transform duration-300 hover:scale-105 hover:shadow-yellow-400/30 ">
         <!-- Animated Glow Border -->
         <span
@@ -366,7 +435,7 @@
       </div>
 
       <!-- Card 2 -->
-      <div
+      <div data-aos="zoom-in"
         class="group relative rounded-xl bg-gradient-to-br from-transparent via-yellow-600/10 to-yellow-700/5 backdrop-blur-lg border border-yellow-400/20 p-6 flex flex-col items-center text-yellow-100 shadow-2xl transition-transform duration-300 hover:scale-105 hover:shadow-yellow-400/30 ">
         <span
           class="relative z-10 animate-bounce text-yellow-200 text-3xl mb-2 transition-transform duration-300 group-hover:scale-125">💸</span>
@@ -376,7 +445,7 @@
       </div>
 
       <!-- Card 3 -->
-      <div
+      <div data-aos="zoom-in"
         class="group relative rounded-xl bg-gradient-to-br from-transparent via-yellow-600/10 to-yellow-700/5 backdrop-blur-lg border border-yellow-400/20 p-6 flex flex-col items-center text-yellow-100 shadow-2xl transition-transform duration-300 hover:scale-105 hover:shadow-yellow-400/30 ">
         <span
           class="relative z-10 animate-bounce text-yellow-200 text-3xl mb-2 transition-transform duration-300 group-hover:scale-125">📍</span>
@@ -402,14 +471,15 @@
       </span>
     </div>
     <!-- Left: Solution Content -->
-    <div class="w-full max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
+    <div data-aos="zoom-in-right" class="w-full max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 class="text-white text-5xl sm:text-6xl font-extrabold mb-6 drop-shadow-xl animate-fade-in-down">
           Simple. <br> <span class="text-[#FFD02B]">Direct.</span> <br> Fair.
         </h2>
       </div>
       <!-- Right: Image Side (replace src with your image) -->
-      <div class="flex justify-center items-center animate-fade-in-down slow-move-up-down [animation-delay:.4s]">
+      <div data-aos="zoom-in-left"
+        class="flex justify-center items-center animate-fade-in-down slow-move-up-down [animation-delay:.4s]">
         <img src="/assets/images/phone-app.png" alt="zylohub workflow illustration"
           class=" w-full  max-w-lg object-cover hover:scale-105 transition-transform duration-300" />
       </div>
@@ -427,7 +497,8 @@
         </div>
         <div class="absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gray-700 md:hidden z-0"></div>
         <!-- Steps -->
-        <div class="flex flex-col items-center md:w-1/5 relative z-10">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          class="flex flex-col items-center md:w-1/5 relative z-10">
           <span class="text-[2.6rem] md:text-[3.5rem] font-bold text-white mb-7 leading-none select-none">01</span>
           <div class="w-3 h-3 bg-yellow-400 rounded-full mb-6 md:mb-8"></div>
           <div class="text-center">
@@ -435,7 +506,8 @@
             <div class="text-xs md:text-sm">workers instantly notified.</div>
           </div>
         </div>
-        <div class="flex flex-col items-center md:w-1/5 relative z-10">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          class="flex flex-col items-center md:w-1/5 relative z-10">
           <span class="text-[2.6rem] md:text-[3.5rem] font-bold text-white mb-7 leading-none select-none">02</span>
           <div class="w-3 h-3 bg-yellow-400 rounded-full mb-6 md:mb-8"></div>
           <div class="text-center ">
@@ -443,7 +515,8 @@
             <div class="text-xs md:text-sm">Hosters choose and confirm.</div>
           </div>
         </div>
-        <div class="flex flex-col items-center md:w-1/5 relative z-10">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          class="flex flex-col items-center md:w-1/5 relative z-10">
           <span class="text-[2.6rem] md:text-[3.5rem] font-bold text-white mb-7 leading-none select-none">03</span>
           <div class="w-3 h-3 bg-yellow-400 rounded-full mb-6 md:mb-8"></div>
           <div class="text-center">
@@ -451,7 +524,8 @@
             <div class="text-xs md:text-sm">Verified by OTP Code.</div>
           </div>
         </div>
-        <div class="flex flex-col items-center md:w-1/5 relative z-10">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          class="flex flex-col items-center md:w-1/5 relative z-10">
           <span class="text-[2.6rem] md:text-[3.5rem] font-bold text-white mb-7 leading-none select-none">04</span>
           <div class="w-3 h-3 bg-yellow-400 rounded-full mb-6 md:mb-8"></div>
           <div class="text-center">
@@ -459,7 +533,8 @@
             <div class="text-xs md:text-sm">Completes in the given time</div>
           </div>
         </div>
-        <div class="flex flex-col items-center md:w-1/5 relative z-10">
+        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          class="flex flex-col items-center md:w-1/5 relative z-10">
           <span class="text-[2.6rem] md:text-[3.5rem] font-bold text-white mb-7 leading-none select-none">05</span>
           <div class="w-3 h-3 bg-yellow-400 rounded-full mb-6 md:mb-8"></div>
           <div class="text-center">
@@ -497,7 +572,8 @@
         About Us
       </span>
     </div>
-    <div class="w-full h-[50vh] bg-black py-20 px-2 flex flex-col items-center justify-center"
+    <div data-aos="fade-up" data-aos-duration="3000"
+      class="w-full h-[50vh] bg-black py-20 px-2 flex flex-col items-center justify-center"
       style="background-image: url('/assets/images/brand.png'); background-size: cover; background-position: center;">
     </div>
 
@@ -530,7 +606,7 @@
 
 
   <!-- Download SECTION -->
-  <section
+  <section id="download"
     class="relative flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-16 py-14 md:py-24 max-w-7xl mx-auto bg-yellow-400 rounded-3xl shadow-lg border border-black">
     <!-- TEXT AREA -->
     <div class="w-full md:w-1/2 mt-10 md:mt-0 text-center md:text-left">
@@ -564,7 +640,8 @@
   </section>
 
 
-  <section id="hoster" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 md:py-32">
+  <section data-aos="fade-up" data-aos-duration="1000" id="hoster"
+    class="min-h-screen flex flex-col items-center justify-center px-6 py-20 md:py-32">
     <div class="flex items-center justify-center w-full my-8">
       <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
         style="backdrop-filter: blur(2px);">
@@ -664,7 +741,8 @@
 
 
   <!-- Seeker Section -->
-  <section id="Seeker" class="bg-black text-white py-20 px-4 md:px-10 lg:px-24 flex flex-col items-center">
+  <section data-aos="fade-up" data-aos-duration="1000" id="Seeker"
+    class="bg-black text-white py-20 px-4 md:px-10 lg:px-24 flex flex-col items-center">
     <div class="flex items-center justify-center w-full my-8">
       <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
         style="backdrop-filter: blur(2px);">
@@ -757,7 +835,7 @@
 
 
 
-  <div class="w-full bg-black px-2 flex flex-col items-center justify-center">
+  <div data-aos="zoom-in" class="w-full bg-black px-2 flex flex-col items-center justify-center">
     <img src="/assets/images/3D-icon.png" alt="3D Icon" class="w-auto h-auto max-w-xs sm:max-w-md md:max-w-lg" />
   </div>
 
@@ -798,7 +876,7 @@
 
           <div class="space-y-8 sm:space-y-12 lg:space-y-16">
             <!-- Step 01 -->
-            <div class="relative flex items-center">
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" class="relative flex items-center">
               <div class="flex-1 sm:pl-20 lg:pl-16">
                 <div
                   class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group">
@@ -838,7 +916,8 @@
             </div>
 
             <!-- Step 02 -->
-            <div class="relative flex items-center lg:flex-row-reverse">
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom"
+              class="relative flex items-center lg:flex-row-reverse">
               <div class="flex-1 lg:text-right lg:pr-16 sm:pl-20 lg:pl-16">
                 <div
                   class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group">
@@ -878,7 +957,7 @@
             </div>
 
             <!-- Step 03 -->
-            <div class="relative flex items-center">
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" class="relative flex items-center">
               <div class="flex-1 sm:pl-20 lg:pl-16">
                 <div
                   class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group">
@@ -918,7 +997,8 @@
             </div>
 
             <!-- Step 04 -->
-            <div class="relative flex items-center lg:flex-row-reverse">
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom"
+              class="relative flex items-center lg:flex-row-reverse">
               <div class="flex-1 lg:text-right lg:pr-16 sm:pl-20 lg:pl-16">
                 <div
                   class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group">
@@ -958,7 +1038,7 @@
             </div>
 
             <!-- Step 05 -->
-            <div class="relative flex items-center">
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" class="relative flex items-center">
               <div class="flex-1 sm:pl-20 lg:pl-16">
                 <div
                   class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group">
@@ -1034,7 +1114,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
         <!-- Card 1 -->
-        <div
+        <div data-aos="flip-up"
           class="relative bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group flex flex-col justify-between overflow-hidden">
 
           <div class="relative z-10">
@@ -1050,7 +1130,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div
+        <div data-aos="flip-up"
           class="relative bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group flex flex-col justify-between overflow-hidden">
           <div class="relative z-10">
             <img src="./assets/images/notification.png" alt="Location">
@@ -1066,7 +1146,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div
+        <div data-aos="flip-up"
           class="relative bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group flex flex-col justify-between overflow-hidden">
           <div class="relative z-10">
             <img src="./assets/images/control.png" alt="Location">
@@ -1082,7 +1162,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div
+        <div data-aos="flip-up"
           class="relative bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group flex flex-col justify-between overflow-hidden">
           <div class="relative z-10">
             <div class="flex items-center gap-3 mb-4">
@@ -1096,7 +1176,7 @@
         </div>
 
         <!-- Card 5 -->
-        <div
+        <div data-aos="flip-up"
           class="relative bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:bg-white/10 hover:border-[#FFD02B]/30 transition-all duration-300 group flex flex-col justify-between overflow-hidden lg:col-span-2">
           <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
@@ -1300,7 +1380,7 @@
       <!-- FAQ Items -->
       <div class="space-y-4">
         <!-- FAQ 1 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1321,7 +1401,7 @@
         </div>
 
         <!-- FAQ 2 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1341,7 +1421,7 @@
         </div>
 
         <!-- FAQ 3 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1363,7 +1443,7 @@
         </div>
 
         <!-- FAQ 4 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1384,7 +1464,7 @@
         </div>
 
         <!-- FAQ 5 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1404,7 +1484,7 @@
         </div>
 
         <!-- FAQ 6 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1424,7 +1504,7 @@
         </div>
 
         <!-- FAQ 7 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1445,7 +1525,7 @@
         </div>
 
         <!-- FAQ 8 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1466,7 +1546,7 @@
         </div>
 
         <!-- FAQ 9 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1487,7 +1567,7 @@
         </div>
 
         <!-- FAQ 10 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1507,7 +1587,7 @@
         </div>
 
         <!-- FAQ 11 -->
-        <div
+        <div data-aos="zoom-in"
           class="group bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl overflow-hidden hover:border-yellow-400 transition-all duration-300">
           <button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFAQ(event)">
             <div class="flex items-center gap-4">
@@ -1699,7 +1779,7 @@
     </div>
 
 
-    
+
 
     <!-- Hidden form popup that appears when clicking "Join Now" -->
     <div id="bannerFormOverlay"
@@ -1742,6 +1822,7 @@
       <!-- Column 1: Brand & Description -->
       <div class="lg:col-span-1">
         <div class="mb-6">
+          <img src="/assets/images/logo.png" alt="ZyloHub Logo" class="w-10 h-10">
           <h3 class="text-3xl font-bold text-white mb-4">zylohub</h3>
           <p class="text-gray-400 text-sm leading-relaxed">
             Making the world a better place through connecting businesses with skilled blue-collar workers.
@@ -1950,7 +2031,7 @@
 
 
 
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="index.js" type="text/javascript"></script>
 <script src="/js/waitlist.js" type="text/javascript"></script>
 <script src="/js/cookies.js" type="text/javascript"></script>
