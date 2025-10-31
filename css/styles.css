@@ -336,3 +336,15 @@
 
 
 
+.spinner { 
+  animation: spin 1s linear infinite; 
+}
+@keyframes spin { 
+  to { 
+    transform: rotate(360deg); 
+  } 
+}
+.role-radio[aria-checked="true"] {
+  box-shadow: 0 0 20px rgba(255, 208, 43, 0.12);
+  border-color: #FFD02B !important;
+}
