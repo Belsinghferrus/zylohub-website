@@ -156,7 +156,6 @@
           // Use CORS mode — make sure your endpoint allows CORS from your origin
           const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
-            mode: 'cors', // changed from 'no-cors' so we can observe response
             headers: {
               'Content-Type': 'text/plain;charset=utf-8', 
             },
