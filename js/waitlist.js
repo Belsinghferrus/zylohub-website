@@ -10,7 +10,7 @@
     'use strict';
   
     // ⚠️ Replace with your Google Apps Script URL (must support CORS)
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbORYEXCfjW457-vR_olx7aePf-EBwicIIuQ5KDPTNesmgDlLBQwj8-25RxON_DDFYw/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxeqcyBmb4OaE3ja1RR4V8RpX9xc70Y326gfApFI3eMwt47CJMU1ewSpfNA18aCKLQu2w/exec';
   
     // Wait for DOM
     document.addEventListener('DOMContentLoaded', () => {
