@@ -1,0 +1,54 @@
+* {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+  }
+  ::selection {
+    background-color: rgba(255, 208, 43, 0.3);
+  }
+  .job-card {
+    background: linear-gradient(145deg, #0a0a0a 0%, #111 100%);
+    border: 1px solid rgba(255, 208, 43, 0.1);
+    transition: all 0.3s ease;
+  }
+  .job-card:hover {
+    border-color: rgba(255, 208, 43, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  .highlight-badge {
+    background: rgba(255, 208, 43, 0.1);
+    border: 1px solid rgba(255, 208, 43, 0.2);
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 208, 43, 0.2),
+      transparent
+    );
+  }
+  .nav-dot.active .dot {
+    background-color: #ffd02b;
+    border-color: #ffd02b;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 208, 43, 0.3);
+  }
+  .faq-active {
+    border-color: #ffd02b !important;
+    box-shadow: 0 0 20px rgba(255, 208, 43, 0.1);
+  }
+  .careers-dropdown {
+    backdrop-filter: blur(12px);
+  }
+  .input-dark {
+    background-color: #000 !important;
+    border-color: #374151;
+  }
+  .input-dark:focus {
+    border-color: #ffd02b;
+    box-shadow: 0 0 0 3px rgba(255, 208, 43, 0.1);
+  }
