@@ -91,6 +91,14 @@
 
 </head>
 
+<!-- <div id="analytics"></div>
+<script>
+  fetch('/partials/analytics.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('analytics').innerHTML = html);
+</script> -->
+
+
 <body class="bg-black text-white overflow-x-hidden">
 
   <!-- Vertical Navbar (modern design, center right, desktop only) -->
@@ -131,14 +139,16 @@
         <img src="https://zylohub.com/logo.png" alt="ZyloHub Logo" class="w-12 h-12">
         <!-- <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span> -->
       </a>
-      
+
       <!-- ===== DESKTOP NAV LINKS ===== -->
       <ul class="hidden md:flex items-center gap-8">
         <li><a href="https://zylohub.com" class="text-white hover:text-[#FFD02B] transition">Zylohub</a></li>
-        <li><a href="https://zylohub.com/about-us.html" class="text-white hover:text-[#FFD02B] transition">About</a></li>
+        <li><a href="https://zylohub.com/about-us.html" class="text-white hover:text-[#FFD02B] transition">About</a>
+        </li>
         <li><a href="https://zylohub.com/career.html" class="text-white hover:text-[#FFD02B] transition">Career</a></li>
         <li><a href="https://zylohub.com/blog.html" class="text-white hover:text-[#FFD02B] transition">Blog</a></li>
-        <li><a href="https://zylohub.com/contact-us.html" class="text-white hover:text-[#FFD02B] transition">Contact</a></li>
+        <li><a href="https://zylohub.com/contact-us.html" class="text-white hover:text-[#FFD02B] transition">Contact</a>
+        </li>
       </ul>
 
       <!-- CTA Button -->
@@ -163,7 +173,8 @@
       <a href="https://zylohub.com/about-us.html" class="text-white text-lg hover:text-[#FFD02B] transition">About</a>
       <a href="https://zylohub.com/career.html" class="text-white text-lg hover:text-[#FFD02B] transition">Career</a>
       <a href="https://zylohub.com/blog.html" class="text-white text-lg hover:text-[#FFD02B] transition">Blog</a>
-      <a href="https://zylohub.com/contact-us.html" class="text-white text-lg hover:text-[#FFD02B] transition">Contact</a>
+      <a href="https://zylohub.com/contact-us.html"
+        class="text-white text-lg hover:text-[#FFD02B] transition">Contact</a>
       <a href="#waitlist"
         class="bg-[#FFD02B] text-black font-semibold py-3 px-6 rounded-full shadow hover:bg-white transition-all">
         Join Waitlist
