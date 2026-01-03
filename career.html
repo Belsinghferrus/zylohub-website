@@ -328,13 +328,29 @@
 
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#open-positions" class="bg-yellow-400 text-black font-semibold px-10 py-4 rounded-xl 
+                <!-- <a href="#open-positions" class="bg-yellow-400 text-black font-semibold px-10 py-4 rounded-xl 
                      hover:bg-yellow-300 transition">
                     View Open Roles
                 </a>
 
                 <a href="#application-form" class="border border-gray-600 text-white font-semibold px-10 py-4 rounded-xl 
                      hover:border-white transition">
+                    Send Your Profile
+                </a> -->
+                <a href="#open-positions" class="inline-flex items-center justify-center
+                       px-10 py-4 rounded-full
+                       bg-yellow-400 text-black
+                       font-semibold text-base
+                       transition hover:bg-yellow-300">
+                    View Open Roles
+                </a>
+
+                <!-- Secondary -->
+                <a href="#application-form" class="inline-flex items-center justify-center
+                       px-10 py-4 rounded-full
+                       border border-white/30
+                       text-white font-semibold
+                       transition hover:border-yellow-400 hover:text-yellow-400">
                     Send Your Profile
                 </a>
             </div>
@@ -1332,8 +1348,13 @@
                         We're always looking for talented people who share our mission.
                         Send us your profile anyway!
                     </p>
-                    <a href="#application-form"
-                        class="inline-flex items-center gap-2 bg-accent text-black font-semibold py-3 px-8 rounded-xl hover:shadow-[0_0_25px_rgba(255,208,43,0.5)] transition-all duration-300 group">
+
+
+                    <a href="#application-form" class="inline-flex items-center justify-center
+                        px-10 py-4 rounded-full
+                        bg-yellow-400 text-black
+                        font-semibold text-base
+                        transition hover:bg-yellow-300">
                         Send Your Profile
                         <i data-lucide="send" width="18" class="group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -2016,6 +2037,7 @@
             </div>
         </div>
     </footer>
+    <script src="/js/index.js" type="text/javascript"></script>
     <script src="/js/career/career.js" type="text/javascript"></script>
     <script src="/js/career/job-application.js" type="text/javascript"></script>
 </body>

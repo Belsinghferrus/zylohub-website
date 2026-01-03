@@ -1,11 +1,1613 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zylohub - About us</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zylohub - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/lucide@latest/dist/lucide.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        yellow: {
+                            400: "#FFD02B",
+                            300: "#FFD94A",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    animation: {
+                        float: "float 3s ease-in-out infinite",
+                        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+                    },
+                    keyframes: {
+                        float: {
+                            "0%, 100%": { transform: "translateY(0px)" },
+                            "50%": { transform: "translateY(-10px)" },
+                        },
+                        "pulse-glow": {
+                            "0%, 100%": { opacity: 1 },
+                            "50%": { opacity: 0.7 },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/aboutus.css">
+
 </head>
-<body>
-    This Page is under development
+
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+    <!-- Vertical Navbar (modern design, center right, desktop only) -->
+    <nav class="hidden md:flex flex-col items-center gap-2 fixed top-1/2 right-10 -translate-y-1/2 z-50">
+
+        <!-- Gradient vertical line, runs through dots -->
+        <div
+            class="absolute left-1/2 top-3 h-[calc(100%-2rem)] w-[3px] bg-gradient-to-b from-yellow-300 via-gray-700 to-yellow-300 rounded-full -translate-x-1/2 -z-10">
+        </div>
+
+        <!-- Nav Items: each with a dot, animates on active/hover -->
+        <a href="#hero" class="nav-dot group">
+            <span
+                class="dot flex items-center justify-center transition-all duration-300 bg-gray-700 border-2 border-gray-400 hover:border-yellow-300 h-8 w-8 rounded-full shadow cursor-pointer text-xs font-black text-yellow-200 group-active:bg-yellow-400"
+                data-label="zylohub">Z</span>
+        </a>
+        <a href="#mission" class="nav-dot group"><span class="dot" data-label="Core Message">M</span></a>
+        <a href="#problem" class="nav-dot group"><span class="dot" data-label="The Problem">P</span></a>
+        <a href="#how" class="nav-dot group"><span class="dot" data-label="How it works">H</span></a>
+        <a href="#different" class="nav-dot group"><span class="dot" data-label="Different">D</span></a>
+        <a href="#story" class="nav-dot group"><span class="dot" data-label="Story">S</span></a>
+        <a href="#team" class="nav-dot group"><span class="dot" data-label="Team">T</span></a>
+        <a href="#traction" class="nav-dot group"><span class="dot" data-label="Traction">TR</span></a>
+        <a href="#roadmap" class="nav-dot group"><span class="dot" data-label="Roadmap">R</span></a>
+        <a href="#value" class="nav-dot group"><span class="dot" data-label="Value">V</span></a>
+        <a href="#impact" class="nav-dot group"><span class="dot" data-label="Impact">I</span></a>
+        <a href="#comparision" class="nav-dot group"><span class="dot" data-label="comparision">C</span></a>
+        <a href="#cta" class="nav-dot group"><span class="dot" data-label="cta">CT</span></a>
+        <a href="#footer" class="nav-dot group"><span class="dot" data-label="Footer">F</span></a>
+    </nav>
+
+
+    <!-- ===== NAVBAR ===== -->
+    <nav
+        class="fixed top-0 left-0 w-full h-20 bg-black/60 backdrop-blur-md border-b border-white/10 z-50 transition-all">
+        <div class="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between bg-black/60 ">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 cursor-pointer">
+                <img src="https://zylohub.com/logo.png" alt="ZyloHub Logo" class="w-12 h-12">
+                <!-- <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span> -->
+            </a>
+
+            <!-- ===== DESKTOP NAV LINKS ===== -->
+            <ul class="hidden md:flex items-center gap-8">
+                <li><a href="https://zylohub.com" class="text-white hover:text-[#FFD02B] transition">zylohub</a></li>
+                <li><a href="https://zylohub.com/about-us.html"
+                        class="text-white hover:text-[#FFD02B] transition">About</a>
+                </li>
+                <li><a href="https://zylohub.com/career.html"
+                        class="text-white hover:text-[#FFD02B] transition">Career</a></li>
+                <li><a href="https://zylohub.com/blog.html" class="text-white hover:text-[#FFD02B] transition">Blog</a>
+                </li>
+                <li><a href="https://zylohub.com/contact-us.html"
+                        class="text-white hover:text-[#FFD02B] transition">Contact</a>
+                </li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="#waitlist"
+                class="hidden md:inline-block bg-[#FFD02B] text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-white hover:-translate-y-0.5 hover:shadow-lg transition-all">
+                Join Waitlist
+            </a>
+
+            <!-- ===== MOBILE MENU TOGGLE ===== -->
+            <button id="mobileMenuBtn"
+                class="md:hidden flex flex-col bg-black  justify-center items-center gap-[6px] w-10 h-10 text-white focus:outline-none transition">
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+
+        <!-- ===== MOBILE MENU ===== -->
+        <div id="mobileMenu"
+            class="absolute top-20 left-0 w-full bg-black/95 backdrop-blur-md border-t border-white/10 hidden flex-col items-center gap-6 py-8 transition-all">
+            <a href="https://zylohub.com" class="text-white text-lg hover:text-[#FFD02B] transition">Zylohub</a>
+            <a href="https://zylohub.com/about-us.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">About</a>
+            <a href="https://zylohub.com/career.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">Career</a>
+            <a href="https://zylohub.com/blog.html" class="text-white text-lg hover:text-[#FFD02B] transition">Blog</a>
+            <a href="https://zylohub.com/contact-us.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">Contact</a>
+            <a href="#waitlist"
+                class="bg-[#FFD02B] text-black font-semibold py-3 px-6 rounded-full shadow hover:bg-white transition-all">
+                Join Waitlist
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-black text-white px-6">
+        <div class="max-w-5xl mx-auto text-center">
+
+            <!-- Hiring Badge -->
+            <span class="inline-flex items-center px-6 py-2 mb-10
+               rounded-full border border-yellow-400
+               text-yellow-400 text-sm font-semibold tracking-wide">
+                Workforce infrastructure for India
+            </span>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+               font-bold leading-tight mb-8">
+                The Backbone of India’s Economy<br class="hidden sm:block" />
+
+            </h1>
+
+            <!-- Accent Divider -->
+            <div class="w-14 h-1 bg-yellow-400 mx-auto mb-10"></div>
+
+            <!-- Subtext -->
+            <p class="text-lg sm:text-xl text-gray-300
+               max-w-3xl mx-auto mb-16 leading-relaxed">
+                We’re building the world’s most trusted on-demand staffing platform.
+                Help us empower millions of blue-collar workers and transform how India works.
+                <br class="hidden sm:block" />
+                <span class="text-white">Join early.</span>
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-20">
+                <span class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm">
+                    Fair Work
+                </span>
+                <span class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm">
+                    Transparent Pay
+                </span>
+                <span class="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm">
+                    Zero Middlemen
+                </span>
+            </div>
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+
+                <!-- Primary -->
+                <a href="https://zylohub.com/#waitlist" class="inline-flex items-center justify-center
+                 px-10 py-4 rounded-full
+                 bg-yellow-400 text-black
+                 font-semibold text-base
+                 transition hover:bg-yellow-300">
+                    Join the waitlist
+                </a>
+
+                <!-- Secondary -->
+                <a href="#mission" class="inline-flex items-center justify-center
+                 px-10 py-4 rounded-full
+                 border border-white/30
+                 text-white font-semibold
+                 transition hover:border-yellow-400 hover:text-yellow-400">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 px-4 border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+                        Our <span class="text-yellow-400">Mission</span>
+                    </h2>
+                    <p class="text-xl sm:text-2xl text-gray-300 mb-8">
+                        Empower every blue-collar worker with fair access to work and
+                        income - anywhere, anytime.
+                    </p>
+                </div>
+
+                <div data-aos="fade-left">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div
+                            class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <div class="text-yellow-400 text-3xl sm:text-4xl font-bold mb-2">
+                                10M+
+                            </div>
+                            <p class="text-gray-300">
+                                workers lose 30-50% earnings to agencies
+                            </p>
+                        </div>
+                        <div
+                            class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <div class="text-yellow-400 text-3xl sm:text-4xl font-bold mb-2">
+                                2x
+                            </div>
+                            <p class="text-gray-300">
+                                businesses pay for unreliable staffing
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                The Problem We <span class="text-yellow-400">Solve</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12" data-aos="fade-up" data-aos-delay="100">
+                <!-- Workers Problems -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="users" class="text-yellow-400 w-8 h-8"></i>
+                        <h3 class="text-xl sm:text-2xl font-bold">Workers Face</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-right" data-aos-delay="100">
+                            <i data-lucide="indian-rupee" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Unfair commission cuts (30-50%)</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-right" data-aos-delay="200">
+                            <i data-lucide="shield-alert" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Fake job promises</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-right" data-aos-delay="300">
+                            <i data-lucide="map-pin" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Zero local visibility</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-right" data-aos-delay="400">
+                            <i data-lucide="clock" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Delayed payments</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-right" data-aos-delay="500">
+                            <i data-lucide="shield-off" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">No worker protection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Problems -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="building-2" class="text-yellow-400 w-8 h-8"></i>
+                        <h3 class="text-xl sm:text-2xl font-bold">
+                            Businesses Struggle With
+                        </h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-left" data-aos-delay="100">
+                            <i data-lucide="clock" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Agency delays and hidden fees</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <i data-lucide="users" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Unreliable workers and no-shows</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-left" data-aos-delay="300">
+                            <i data-lucide="zap" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">No real-time matching capability</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-left" data-aos-delay="400">
+                            <i data-lucide="indian-rupee" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">High hiring costs</span>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:translate-x-2 glow-hover"
+                            data-aos="fade-left" data-aos-delay="500">
+                            <i data-lucide="shield" class="text-yellow-400 w-5 h-5 mt-1"></i>
+                            <span class="text-gray-300">Lack of verified talent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                How <span class="text-yellow-400">zylohub</span> Works
+            </h2>
+
+            <div class="timeline-line">
+                <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-5 gap-4 sm:gap-8">
+                    <div class="relative text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-black font-bold text-lg sm:text-xl">1</span>
+                        </div>
+                        <div
+                            class="bg-black p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <i data-lucide="smartphone"
+                                class="mx-auto mb-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12"></i>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">Post Jobs</h4>
+                            <p class="text-sm sm:text-base text-gray-400">
+                                Hosters post jobs in 30 seconds
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-black font-bold text-lg sm:text-xl">2</span>
+                        </div>
+                        <div
+                            class="bg-black p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <i data-lucide="zap" class="mx-auto mb-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12"></i>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">Get Alerts</h4>
+                            <p class="text-sm sm:text-base text-gray-400">
+                                Nearby verified workers get instant alerts
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-black font-bold text-lg sm:text-xl">3</span>
+                        </div>
+                        <div
+                            class="bg-black p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <i data-lucide="users" class="mx-auto mb-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12"></i>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">
+                                Choose Workers
+                            </h4>
+                            <p class="text-sm sm:text-base text-gray-400">
+                                Hosters review profiles and pick best fit
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-black font-bold text-lg sm:text-xl">4</span>
+                        </div>
+                        <div
+                            class="bg-black p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <i data-lucide="check-circle"
+                                class="mx-auto mb-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12"></i>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">Accept & Work</h4>
+                            <p class="text-sm sm:text-base text-gray-400">
+                                Workers accept and show up on schedule
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative text-center" data-aos="fade-up" data-aos-delay="500">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+                            <span class="text-black font-bold text-lg sm:text-xl">5</span>
+                        </div>
+                        <div
+                            class="bg-black p-4 sm:p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover">
+                            <i data-lucide="indian-rupee"
+                                class="mx-auto mb-4 text-yellow-400 w-8 h-8 sm:w-12 sm:h-12"></i>
+                            <h4 class="text-lg sm:text-xl font-bold mb-2">Instant Pay</h4>
+                            <p class="text-sm sm:text-base text-gray-400">
+                                Work done, instantly paid via Razorpay
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We're Different -->
+    <section id="different" class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Why We're <span class="text-yellow-400">Different</span>
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="indian-rupee"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">0% Commission</h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        Workers keep 100% of earnings
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="shield"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">Verified Workers</h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        ID verification + background checks
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="zap"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">
+                        Real-Time Matching
+                    </h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        Jobs appear to nearby workers instantly
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <i data-lucide="clock"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">Instant Payments</h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        Razorpay integration, no delayed payouts
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <i data-lucide="target"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">Total Control</h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        Hosters choose who works, when they work
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover group"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <i data-lucide="globe"
+                        class="text-yellow-400 mb-6 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-lg sm:text-xl font-bold mb-3">Built for India</h4>
+                    <p class="text-sm sm:text-base text-gray-400">
+                        Multiple languages, local payment methods
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Story Section -->
+    <section id="story" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center" data-aos="fade-up">
+                Our <span class="text-yellow-400">Story</span>
+            </h2>
+
+            <div class="space-y-6 sm:space-y-8" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-lg sm:text-xl text-gray-300">
+                    zylohub was founded by experienced builders who saw the gap in
+                    India's staffing ecosystem. We spent months talking to workers and
+                    businesses, understanding the pain points firsthand.
+                </p>
+
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="p-4 sm:p-6 border-l-4 border-yellow-400 bg-black rounded-r-lg">
+                        <p class="text-base sm:text-lg italic text-gray-300">
+                            "Agencies steal our money. We want direct jobs."
+                        </p>
+                        <p class="mt-2 text-yellow-400 font-semibold">
+                            — Workers told us
+                        </p>
+                    </div>
+
+                    <div class="p-4 sm:p-6 border-l-4 border-yellow-400 bg-black rounded-r-lg">
+                        <p class="text-base sm:text-lg italic text-gray-300">
+                            "We need reliable workers fast. Agencies are too expensive."
+                        </p>
+                        <p class="mt-2 text-yellow-400 font-semibold">
+                            — Businesses told us
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-gray-300">
+                    We realized: This is a massive market problem that technology can
+                    solve.
+                    <br /><br />
+                    Today, we're a lean, focused team based in Chennai, building the
+                    infrastructure for fair work across India.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Team Section -->
+    <!-- <section id="team" class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Our <span class="text-yellow-400">Team</span>
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 rounded-full bg-gray-800 border-4 border-yellow-400 overflow-hidden">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-700">
+                            <i data-lucide="user" class="text-gray-500 w-16 h-16 sm:w-24 sm:h-24"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-2">Ferrus</h4>
+                    <p class="text-yellow-400 font-semibold">Founder</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 rounded-full bg-gray-800 border-4 border-yellow-400 overflow-hidden">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-700">
+                            <i data-lucide="code" class="text-gray-500 w-16 h-16 sm:w-24 sm:h-24"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-2">Alan Roy</h4>
+                    <p class="text-yellow-400 font-semibold">Developer</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 rounded-full bg-gray-800 border-4 border-yellow-400 overflow-hidden">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-700">
+                            <i data-lucide="palette" class="text-gray-500 w-16 h-16 sm:w-24 sm:h-24"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-2">Jenish</h4>
+                    <p class="text-yellow-400 font-semibold">Creative Director</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 rounded-full bg-gray-800 border-4 border-yellow-400 overflow-hidden">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-700">
+                            <i data-lucide="palette" class="text-gray-500 w-16 h-16 sm:w-24 sm:h-24"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-xl sm:text-2xl font-bold mb-2">Sri Ram</h4>
+                    <p class="text-yellow-400 font-semibold">Marketing</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <p class="text-lg sm:text-xl text-gray-300 mb-4">
+                    We're looking for talented people to join our founding team.
+                </p>
+                <a href="mailto:careers@zylohub.com"
+                    class="inline-block px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-all duration-300 glow-hover">
+                    careers@zylohub.com
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Traction Section -->
+    <section id="traction" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Traction & <span class="text-yellow-400">Milestones</span>
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            10,000+
+                        </div>
+                    </div>
+                    <p class="text-gray-300">waitlist signups (within 3 months)</p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            Pvt Ltd
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Registered company</p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            Bootstrapped
+                        </div>
+                    </div>
+                    <p class="text-gray-300">₹1L personal investment</p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            Funding
+                        </div>
+                    </div>
+                    <p class="text-gray-300">pre-seed at 12% equity</p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            Q1 2026
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Beta launch ready</p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="text-yellow-400 w-6 h-6"></i>
+                        <div class="text-yellow-400 text-2xl sm:text-3xl font-bold">
+                            Chennai
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Launch city</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="py-20 px-4 bg-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Our <span class="text-yellow-400">Roadmap</span>
+            </h2>
+
+            <div class="relative">
+                <!-- Vertical line - Hidden on mobile, shown on desktop -->
+                <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-400/30">
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pr-12 sm:text-right">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                Q4 2025
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                Complete Beta
+                            </h4>
+                            <p class="text-gray-400">Finalize app, secure funding</p>
+                        </div>
+
+                        <!-- Empty spacer for desktop right side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pl-12"></div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Empty spacer for desktop left side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pr-12"></div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pl-12">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                Q1 2026
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                Public Launch
+                            </h4>
+                            <p class="text-gray-400">
+                                Launch in Chennai with 1,000+ active workers
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="300">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pr-12 sm:text-right">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                Q2 2026
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                Expand to Tamil Nadu
+                            </h4>
+                            <p class="text-gray-400">5 major cities</p>
+                        </div>
+
+                        <!-- Empty spacer for desktop right side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pl-12"></div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="400">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Empty spacer for desktop left side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pr-12"></div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pl-12">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                Q3 2026
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                Scale Operations
+                            </h4>
+                            <p class="text-gray-400">50,000+ workers, 5,000+ hosters</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="500">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pr-12 sm:text-right">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                Q4 2026
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                National Presence
+                            </h4>
+                            <p class="text-gray-400">
+                                1M+ workers, 10K+ hosters across India
+                            </p>
+                        </div>
+
+                        <!-- Empty spacer for desktop right side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pl-12"></div>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="relative flex items-start gap-4 sm:gap-8" data-aos="fade-up" data-aos-delay="600">
+                        <!-- Mobile dot -->
+                        <div class="sm:hidden absolute left-0 top-6">
+                            <div class="w-4 h-4 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Desktop dot -->
+                        <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 top-6">
+                            <div class="w-6 h-6 bg-yellow-400 rounded-full border-4 border-black"></div>
+                        </div>
+
+                        <!-- Empty spacer for desktop left side -->
+                        <div class="hidden sm:block sm:w-1/2 sm:pr-12"></div>
+
+                        <!-- Content - Full width on mobile, half on desktop -->
+                        <div class="pl-8 sm:pl-0 sm:w-1/2 sm:pl-12">
+                            <div class="text-yellow-400 font-bold text-lg sm:text-xl mb-2">
+                                2027
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold mb-2">
+                                Global Expansion
+                            </h4>
+                            <p class="text-gray-400">Enter Southeast Asia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="value" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Core <span class="text-yellow-400">Values</span>
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Fairness</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        Workers first, always. We built this for them.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Transparency</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        No hidden fees, no surprise cuts. Clarity at every step.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Speed</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        Instant matching, instant payments. Friction removed.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Control</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        Hosters choose. Workers decide. You own your experience.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Trust</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        Verified profiles, secure payments, protected data. Safety
+                        matters.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 bg-black rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <h4 class="text-xl sm:text-2xl font-bold mb-4">
+                        <span class="text-yellow-400">Accessibility</span>
+                    </h4>
+                    <p class="text-gray-300">
+                        Built for India. Multiple languages, local methods, simple
+                        technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Impact & <span class="text-yellow-400">Numbers</span>
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="text-yellow-400 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        10M+
+                    </div>
+                    <p class="text-gray-300">
+                        <span class="text-yellow-400 font-semibold">blue-collar workers</span>
+                        in India need fair opportunities
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="text-yellow-400 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        ₹50,000+ Cr
+                    </div>
+                    <p class="text-gray-300">
+                        market size in
+                        <span class="text-yellow-400 font-semibold">on-demand labor</span>
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="text-yellow-400 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        30-50%
+                    </div>
+                    <p class="text-gray-300">
+                        average
+                        <span class="text-yellow-400 font-semibold">earnings loss</span>
+                        due to agency cuts
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div class="text-yellow-400 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        1M+
+                    </div>
+                    <p class="text-gray-300">
+                        <span class="text-yellow-400 font-semibold">small businesses</span>
+                        needing reliable workers
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 sm:p-8 rounded-xl border border-gray-800" data-aos="fade-up"
+                    data-aos-delay="500">
+                    <div class="text-yellow-400 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                        100x
+                    </div>
+                    <p class="text-gray-300">
+                        <span class="text-yellow-400 font-semibold">growth potential</span>
+                        in next 5 years
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table - Redesigned for Mobile -->
+    <section id="comparision" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
+                Why We're Different <span class="text-yellow-400">From Others</span>
+            </h2>
+
+            <!-- Desktop Table (hidden on mobile) -->
+            <div class="hidden md:block" data-aos="fade-up">
+                <table class="w-full text-base">
+                    <thead>
+                        <tr class="bg-black">
+                            <th class="p-4 text-left border-b border-gray-700">Aspect</th>
+                            <th class="p-4 text-center border-b border-gray-700">
+                                Traditional Agencies
+                            </th>
+                            <th class="p-4 text-center border-b border-gray-700">
+                                Platforms (Like OLX)
+                            </th>
+                            <th class="p-4 text-center text-yellow-400 font-bold border-b border-yellow-400">
+                                zylohub
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Commission</td>
+                            <td class="p-4 text-center text-red-400 font-medium">30-50%</td>
+                            <td class="p-4 text-center text-orange-400 font-medium">
+                                5-15%
+                            </td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                0%
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Payment Speed</td>
+                            <td class="p-4 text-center font-medium">7-15 days</td>
+                            <td class="p-4 text-center font-medium">Variable</td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                Instant (1-2 hrs)
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Worker Verification</td>
+                            <td class="p-4 text-center font-medium">Basic</td>
+                            <td class="p-4 text-center font-medium">Minimal</td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                Full ID + Background
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Real-Time Matching</td>
+                            <td class="p-4 text-center font-medium">No</td>
+                            <td class="p-4 text-center font-medium">No</td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                Yes
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Local Visibility</td>
+                            <td class="p-4 text-center font-medium">No</td>
+                            <td class="p-4 text-center font-medium">No</td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                Yes (map-based)
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-900/50 transition-colors">
+                            <td class="p-4 font-semibold">Support</td>
+                            <td class="p-4 text-center font-medium">Minimal</td>
+                            <td class="p-4 text-center font-medium">Automated</td>
+                            <td class="p-4 text-center text-yellow-400 font-bold bg-yellow-400/10">
+                                Direct contact
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Cards (hidden on desktop) -->
+            <div class="md:hidden space-y-6" data-aos="fade-up">
+                <!-- Commission Card -->
+                <div class="bg-black rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="bg-gray-900 p-4 border-b border-gray-800">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i data-lucide="percent" class="w-5 h-5 text-yellow-400"></i>
+                            Commission & Fees
+                        </h3>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-red-400/10 rounded-lg">
+                            <span class="font-medium">Traditional Agencies</span>
+                            <span class="text-red-400 font-bold">30-50%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-orange-400/10 rounded-lg">
+                            <span class="font-medium">Platforms (Like OLX)</span>
+                            <span class="text-orange-400 font-bold">5-15%</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center p-3 bg-yellow-400/20 border-2 border-yellow-400 rounded-lg">
+                            <span class="font-bold">zylohub</span>
+                            <span class="text-yellow-400 font-bold text-xl">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Speed Card -->
+                <div class="bg-black rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="bg-gray-900 p-4 border-b border-gray-800">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-yellow-400"></i>
+                            Payment Speed
+                        </h3>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                            <span class="font-medium">Traditional Agencies</span>
+                            <span class="font-bold">7-15 days</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                            <span class="font-medium">Platforms (Like OLX)</span>
+                            <span class="font-bold">Variable</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center p-3 bg-yellow-400/20 border-2 border-yellow-400 rounded-lg">
+                            <span class="font-bold">zylohub</span>
+                            <span class="text-yellow-400 font-bold text-xl">Instant (1-2 hrs)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Worker Verification Card -->
+                <div class="bg-black rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="bg-gray-900 p-4 border-b border-gray-800">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i data-lucide="shield" class="w-5 h-5 text-yellow-400"></i>
+                            Worker Verification
+                        </h3>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div class="p-3 bg-gray-800/50 rounded-lg">
+                            <div class="font-medium mb-1">Traditional Agencies</div>
+                            <div class="text-sm text-gray-300">Basic checks only</div>
+                        </div>
+                        <div class="p-3 bg-gray-800/50 rounded-lg">
+                            <div class="font-medium mb-1">Platforms (Like OLX)</div>
+                            <div class="text-sm text-gray-300">Minimal verification</div>
+                        </div>
+                        <div class="p-3 bg-yellow-400/20 border-2 border-yellow-400 rounded-lg">
+                            <div class="font-bold mb-1">zylohub</div>
+                            <div class="text-sm text-yellow-300">
+                                Full ID + Background verification
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Card -->
+                <div class="bg-black rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="bg-gray-900 p-4 border-b border-gray-800">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+                            Features Comparison
+                        </h3>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <!-- Real-Time Matching -->
+                        <div>
+                            <div class="font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="refresh-cw" class="w-4 h-4 text-yellow-400"></i>
+                                Real-Time Matching
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-red-400/10 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Agencies</div>
+                                    <div class="text-red-400 font-bold">No</div>
+                                </div>
+                                <div class="text-center p-2 bg-orange-400/10 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Platforms</div>
+                                    <div class="text-orange-400 font-bold">No</div>
+                                </div>
+                                <div class="text-center p-2 bg-yellow-400/20 border border-yellow-400 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">zylohub</div>
+                                    <div class="text-yellow-400 font-bold">Yes</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Local Visibility -->
+                        <div>
+                            <div class="font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-yellow-400"></i>
+                                Local Visibility
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-gray-800/50 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Agencies</div>
+                                    <div class="font-bold">No</div>
+                                </div>
+                                <div class="text-center p-2 bg-gray-800/50 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Platforms</div>
+                                    <div class="font-bold">No</div>
+                                </div>
+                                <div class="text-center p-2 bg-yellow-400/20 border border-yellow-400 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">zylohub</div>
+                                    <div class="text-yellow-400 font-bold">Yes</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support -->
+                        <div>
+                            <div class="font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="headphones" class="w-4 h-4 text-yellow-400"></i>
+                                Support
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-gray-800/50 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Agencies</div>
+                                    <div class="font-bold text-sm">Minimal</div>
+                                </div>
+                                <div class="text-center p-2 bg-gray-800/50 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">Platforms</div>
+                                    <div class="font-bold text-sm">Automated</div>
+                                </div>
+                                <div class="text-center p-2 bg-yellow-400/20 border border-yellow-400 rounded">
+                                    <div class="text-xs text-gray-400 mb-1">zylohub</div>
+                                    <div class="text-yellow-400 font-bold text-sm">
+                                        Direct contact
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div class="bg-black rounded-xl border-2 border-yellow-400 p-6 text-center">
+                    <div class="mb-4">
+                        <i data-lucide="trophy" class="w-12 h-12 text-yellow-400 mx-auto mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">The Clear Winner</h3>
+                        <p class="text-gray-300 mb-4">
+                            zylohub beats traditional agencies and other platforms on every
+                            metric
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <span class="font-medium">Zero commission</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <span class="font-medium">Instant payments</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <span class="font-medium">Full verification</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <span class="font-medium">Real-time matching</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 px-4 gradient-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8" data-aos="fade-up">
+                Join the <span class="text-yellow-400">Movement</span>
+            </h2>
+
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" data-aos="fade-up"
+                data-aos-delay="100">
+                We're just getting started. 10,000+ early adopters have joined the
+                waitlist.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8 sm:mb-12">
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl font-bold mb-4 text-yellow-400">For Workers</h4>
+                    <p class="text-gray-300">
+                        Get instant job alerts and keep 100% of your earnings.
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold mb-4">For Businesses</h4>
+                    <p class="text-gray-300">
+                        Find verified workers instantly. Zero commission to pay.
+                    </p>
+                </div>
+
+                <div class="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition-all duration-300 glow-hover"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-xl font-bold mb-4 text-yellow-400">For Builders</h4>
+                    <p class="text-gray-300">
+                        Help us scale to 10M+ workers. Equity + impact.
+                    </p>
+                </div>
+            </div>
+
+            <button class="inline-flex items-center justify-center
+                px-10 py-4 rounded-full
+                bg-yellow-400 text-black
+                font-semibold text-base
+                transition hover:bg-yellow-300" data-aos="fade-up" data-aos-delay="500">
+                Join Waitlist Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer Section -->
+ <footer id="footer" class="w-full bg-[#000000] border-t border-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Main Footer Grid - 4 Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+            <!-- Column 1: Brand & Description -->
+            <div class="lg:col-span-1">
+                <div class="mb-6">
+                    <img src="https://zylohub.com/assets/images/logo.png" alt="ZyloHub Logo" class="w-10 h-10">
+                    <h3 class="text-3xl font-bold text-white mb-4">zylohub</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Making the world a better place through connecting businesses with skilled blue-collar
+                        workers.
+                    </p>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="flex gap-4">
+                    <a href="#facebook" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/zylohub_/"
+                        class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/zylohub" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/zylohub" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.93-2.06-2.07 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.07-2.06 2.07zM20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67h-3.56V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@zylohub" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Product -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Product</h4>
+                <ul class="space-y-3">
+                    <li><a href="https://zylohub.com#features"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Features</a></li>
+                    <li><a href="#pricing"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Pricing</a></li>
+                    <li><a href="#integrations"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Integrations</a>
+                    </li>
+                    <li><a href="#api" class="text-gray-400 hover:text-white text-sm transition-colors">API</a></li>
+                    <li><a href="#mobile-app"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Mobile App</a></li>
+                    <li><a href="#updates" class="text-gray-400 hover:text-white text-sm transition-colors">Product
+                            Updates</a>
+                    </li>
+                    <li><a href="https://zylohub.com/about-us.html"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Roadmap</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Platform -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Platform</h4>
+                <ul class="space-y-3">
+                    <li><a href="#for-workers" class="text-gray-400 hover:text-white text-sm transition-colors">For
+                            Workers</a>
+                    </li>
+                    <li><a href="#for-businesses"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">For
+                            Businesses</a></li>
+                    <li><a href="#categories" class="text-gray-400 hover:text-white text-sm transition-colors">Job
+                            Categories</a>
+                    </li>
+                    <li><a href="#how-it-works" class="text-gray-400 hover:text-white text-sm transition-colors">How
+                            It Works</a>
+                    </li>
+                    <li><a href="#safety" class="text-gray-400 hover:text-white text-sm transition-colors">Safety &
+                            Trust</a></li>
+                    <li><a href="#payments"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Payments</a></li>
+                    <li><a href="#verification"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Verification</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Company & Support -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Company</h4>
+                <ul class="space-y-3 mb-6">
+                    <li><a href="https://zylohub.com/about-us.html" class="text-gray-400 hover:text-white text-sm transition-colors">About
+                            Us</a></li>
+                    <li><a href="https://zylohub.com/blog.html" class="text-gray-400 hover:text-white text-sm transition-colors">Blog</a>
+                    </li>
+                    <li><a href="https://zylohub.com/career.html"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Careers</a></li>
+                    <li><a href="#press" class="text-gray-400 hover:text-white text-sm transition-colors">Press
+                            Kit</a></li>
+                    <li><a href="#partners"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Partners</a></li>
+                </ul>
+
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Support</h4>
+                <ul class="space-y-3">
+                    <li><a href="#help-center" class="text-gray-400 hover:text-white text-sm transition-colors">Help
+                            Center</a>
+                    </li>
+                    <li><a href="#documentation"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Documentation</a></li>
+                    <li><a href="https://zylohub.com/contact-us.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact
+                            Us</a></li>
+                    <li><a href="#status" class="text-gray-400 hover:text-white text-sm transition-colors">System
+                            Status</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Resources & Legal Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-gray-800">
+
+            <!-- Resources -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Resources</h4>
+                <ul class="space-y-3">
+                    <li><a href="#guides"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Guides</a></li>
+                    <li><a href="#tutorials"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Tutorials</a></li>
+                    <li><a href="#webinars"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Webinars</a></li>
+                    <li><a href="#case-studies"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Case Studies</a>
+                    </li>
+                    <li><a href="#community"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Community</a></li>
+                </ul>
+            </div>
+
+            <!-- Developers -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Developers</h4>
+                <ul class="space-y-3">
+                    <li><a href="#api-docs" class="text-gray-400 hover:text-white text-sm transition-colors">API
+                            Documentation</a>
+                    </li>
+                    <li><a href="#sdk" class="text-gray-400 hover:text-white text-sm transition-colors">SDK</a></li>
+                    <li><a href="#webhooks"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Webhooks</a></li>
+                    <li><a href="#changelog"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Changelog</a></li>
+                    <li><a href="#github"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">GitHub</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Legal</h4>
+                <ul class="space-y-3">
+                    <li><a href="#terms" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of
+                            Service</a>
+                    </li>
+                    <li><a href="#privacy" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy
+                            Policy</a>
+                    </li>
+                    <li><a href="#cookies" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie
+                            Policy</a></li>
+                    <li><a href="#compliance"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Compliance</a></li>
+                    <li><a href="#security"
+                            class="text-gray-400 hover:text-white text-sm transition-colors">Security</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Contact</h4>
+                <ul class="space-y-3">
+                    <li class="text-gray-400 text-sm">Chennai, Tamil Nadu</li>
+                    <li class="text-gray-400 text-sm">India</li>
+                    <li><a href="mailto:support@zylohub.com"
+                            class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">support@zylohub.com</a>
+                    </li>
+                    <li><a href="mailto:hello@zylohub.com"
+                            class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">info@zylohub.com</a>
+                    </li>
+                    <li><a href="https://www.zylohub.com"
+                            class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">www.zylohub.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Section: CTA + App Download -->
+        <div class="py-12 border-b border-gray-800">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                <!-- CTA Text -->
+                <div class="text-center lg:text-left max-w-xl">
+                    <p class="text-white text-lg font-medium mb-2">
+                        Ready to transform the way you work?
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        Join thousands of workers and businesses building the future of fair employment.
+                    </p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://zylohub.com/#waitlist"
+                        class="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors text-center">
+                        Join the Waitlist
+                    </a>
+                    <a href="https://zylohub.com/#waitlist"
+                        class="px-6 py-3 bg-transparent border border-gray-600 text-white font-semibold rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition-colors text-center">
+                        Download App
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright & Bottom Links -->
+        <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 text-gray-500 text-sm">
+                <span>© 2025 ZyloHub.</span>
+                <span class="hidden md:inline">•</span>
+                <span class="italic text-gray-400">"Built for the people who build the world."</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-sm">
+                <a href="#sitemap" class="text-gray-500 hover:text-white transition-colors">Sitemap</a>
+                <a href="#accessibility" class="text-gray-500 hover:text-white transition-colors">Accessibility</a>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500">Made with</span>
+                    <span class="text-yellow-400">❤️</span>
+                    <span class="text-gray-500">in India</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/js/index.js" type="text/javascript"></script>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

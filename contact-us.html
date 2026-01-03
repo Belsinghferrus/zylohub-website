@@ -1,11 +1,2773 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zylohub - contact us</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | ZyloHub - Building Fair Work Together</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-black: #000000;
+            --primary-yellow: #ffd02b;
+            --dark-gray: #0a0a0a;
+            --medium-gray: #1a1a1a;
+            --light-gray: #2a2a2a;
+        }
+
+        body {
+            background-color: var(--primary-black);
+            color: #f5f5f5;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-yellow);
+            border-radius: 4px;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(255, 208, 43, 0.05) 0%,
+                    rgba(0, 0, 0, 0) 70%);
+        }
+
+        .yellow-accent-border {
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .yellow-glow {
+            box-shadow: 0 0 15px rgba(255, 208, 43, 0.2);
+        }
+
+        .yellow-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 208, 43, 0.3);
+        }
+
+        .form-input {
+            background-color: var(--medium-gray);
+            border: 1px solid var(--light-gray);
+            color: white;
+            border-radius: 6px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 0 2px rgba(255, 208, 43, 0.1);
+        }
+
+        .accordion-item {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 0 20px 20px;
+        }
+
+        .emergency-card {
+            border-left: 4px solid var(--primary-yellow);
+            background-color: rgba(255, 208, 43, 0.05);
+        }
+
+        .stats-card {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .stats-number {
+                font-size: 2rem;
+            }
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--medium-gray);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-yellow);
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .btn-yellow {
+            background-color: var(--primary-yellow);
+            color: black;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yellow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 208, 43, 0.2);
+        }
+
+        /* Full Page Hero Styles */
+        .full-page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .particle {
+            position: absolute;
+            background-color: var(--primary-yellow);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.1;
+            }
+
+            90% {
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom,
+                    var(--primary-yellow),
+                    transparent);
+            margin-top: 10px;
+        }
+
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-underline {
+            height: 4px;
+            width: 120px;
+            background-color: var(--primary-yellow);
+            margin: 2rem auto;
+        }
+
+
+
+        .btn-outline-yellow {
+            border: 2px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .btn-outline-yellow:hover {
+            background-color: var(--primary-yellow);
+            color: black;
+            transform: translateY(-2px);
+        }
+
+
+
+        /* Enhanced FAQ Styles for Two Columns */
+        #faqAccordion .accordion-item {
+            background-color: var(--dark-gray);
+            border-radius: 10px;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        #faqAccordion .accordion-item:hover {
+            border-color: rgba(255, 208, 43, 0.3);
+            transform: translateY(-2px);
+        }
+
+        #faqAccordion .accordion-header {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        #faqAccordion .accordion-header:hover {
+            background-color: rgba(255, 208, 43, 0.02);
+        }
+
+        #faqAccordion .accordion-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-right: 16px;
+            line-height: 1.4;
+        }
+
+        #faqAccordion .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+        }
+
+        #faqAccordion .accordion-content.active {
+            max-height: 500px;
+            padding: 0 24px 24px;
+        }
+
+        #faqAccordion .accordion-content p,
+        #faqAccordion .accordion-content ul {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        #faqAccordion .accordion-content ul {
+            padding-left: 1.25rem;
+        }
+
+        #faqAccordion .fa-chevron-down {
+            transition: transform 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        #faqAccordion .accordion-header:hover .fa-chevron-down {
+            color: rgba(255, 208, 43, 0.8);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            #faqAccordion .accordion-header {
+                padding: 18px 20px;
+            }
+
+            #faqAccordion .accordion-header h3 {
+                font-size: 1.05rem;
+            }
+
+            #faqAccordion .accordion-content {
+                padding: 0 20px;
+            }
+
+            #faqAccordion .accordion-content.active {
+                padding: 0 20px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #faqAccordion .space-y-4 {
+                row-gap: 12px;
+            }
+
+            #faqAccordion .accordion-header {
+                padding: 16px 18px;
+            }
+
+            #faqAccordion .accordion-header h3 {
+                font-size: 1rem;
+            }
+        }
+
+        /* Enhanced styles for new layouts */
+        .contact-card {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.15);
+            border-color: rgba(250, 204, 21, 0.4);
+        }
+
+        .yellow-glow {
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.1);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-yellow:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            #contact-cards .grid {
+                max-width: 100%;
+            }
+        }
+
+        /* Timeline styles for mobile */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom,
+                    var(--primary-yellow),
+                    transparent);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 16px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-yellow);
+            border: 3px solid var(--dark-gray);
+            z-index: 10;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 1rem;
+            }
+
+            /* Make timeline cards more compact */
+            .relative.pl-8 .contact-card {
+                margin-left: 0.5rem;
+                padding: 1rem;
+            }
+
+            .relative.pl-8>div>.absolute {
+                left: -24px !important;
+                top: 35px !important;
+                width: 24px;
+                height: 24px;
+            }
+
+            .relative.pl-8>div>.absolute i {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Desktop table enhancements */
+        table.min-w-full thead tr {
+            background: linear-gradient(to right,
+                    rgba(255, 208, 43, 0.1),
+                    transparent);
+        }
+
+        table.min-w-full tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        table.min-w-full tbody tr:hover {
+            background-color: rgba(255, 208, 43, 0.05);
+        }
+
+        /* Badge styles for response times */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .badge-yellow {
+            background-color: rgba(255, 208, 43, 0.15);
+            color: var(--primary-yellow);
+        }
+
+        .badge-gray {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Compact Premium Card Styles */
+        .compact-premium-card {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            padding: 1.75rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid transparent;
+            overflow: hidden;
+            height: 100%;
+            min-height: 420px;
+        }
+
+        .compact-premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 19px;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 208, 43, 0.5), rgba(255, 208, 43, 0.1), rgba(255, 208, 43, 0.5));
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0.3;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        .compact-premium-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 208, 43, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .compact-premium-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 208, 43, 0.15),
+                0 0 30px rgba(255, 208, 43, 0.08);
+        }
+
+        .compact-premium-card:hover::before {
+            opacity: 0.7;
+            background: linear-gradient(135deg, rgba(255, 208, 43, 0.7), rgba(255, 208, 43, 0.2), rgba(255, 208, 43, 0.7));
+        }
+
+        .compact-premium-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Compact Grid Layout */
+        .compact-premium-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.75rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Compact Icon Box */
+        .compact-icon-box {
+            width: 56px;
+            height: 56px;
+            background: #1a1a1a;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compact-icon-box::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: #111111;
+            border-radius: 13px;
+            z-index: 1;
+        }
+
+        .compact-premium-card:hover .compact-icon-box {
+            background: linear-gradient(135deg, rgba(255, 208, 43, 0.1), rgba(255, 208, 43, 0.05));
+            transform: translateY(-3px) rotate(3deg);
+        }
+
+        .compact-icon-box i {
+            font-size: 22px;
+            color: #ffd02b;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Compact Card Title */
+        .compact-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+        }
+
+        /* Compact Divider */
+        .compact-divider {
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd02b, rgba(255, 208, 43, 0.5));
+            border-radius: 2px;
+            margin: 0.5rem 0 1.25rem 0;
+        }
+
+        /* Compact Highlight Text */
+        .compact-highlight {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffd02b;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.2px;
+        }
+
+        /* Compact Description */
+        .compact-description {
+            color: #b0b0b0;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            font-weight: 400;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Compact Status Row */
+        .compact-status-row {
+            display: flex;
+            align-items: center;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .compact-status-label {
+            color: #8a8a8a;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .compact-status-value {
+            color: #ffd02b;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            background: rgba(255, 208, 43, 0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 208, 43, 0.15);
+        }
+
+        /* Compact Premium Button */
+        .compact-premium-button {
+            background: linear-gradient(135deg, #ffd02b, #ffc107);
+            color: #000000;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9375rem;
+            width: 100%;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .compact-premium-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ffc107, #ffd02b);
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .compact-premium-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 25px rgba(255, 208, 43, 0.25),
+                0 0 0 1px rgba(255, 208, 43, 0.15);
+        }
+
+        .compact-premium-button:hover::before {
+            opacity: 1;
+        }
+
+        .compact-premium-button i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 0.875rem;
+        }
+
+        .compact-premium-button:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Compact Footer */
+        .compact-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            position: relative;
+        }
+
+        .compact-footer-divider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+        }
+
+        .compact-footer-label {
+            color: #8a8a8a;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .compact-footer-email {
+            color: #ffd02b;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .compact-footer-response {
+            color: #8a8a8a;
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        /* Compact Luxury Badge */
+        .compact-luxury-badge {
+            /* background: linear-gradient(135deg, rgba(255, 208, 43, 0.15), rgba(255, 208, 43, 0.05)); */
+            color: #ffd02b;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 208, 43, 0.15);
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 2;
+        }
+
+        /* Responsive adjustments for compact cards */
+        @media (max-width: 1200px) {
+            .compact-premium-grid {
+                gap: 1.5rem;
+                max-width: 1000px;
+            }
+
+            .compact-premium-card {
+                padding: 1.5rem;
+                min-height: 400px;
+            }
+
+            .compact-card-title {
+                font-size: 1.375rem;
+            }
+
+            .compact-icon-box {
+                width: 52px;
+                height: 52px;
+                margin-bottom: 1rem;
+            }
+
+            .compact-icon-box i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .compact-premium-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                max-width: 500px;
+            }
+
+            .compact-premium-card {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .compact-premium-card {
+                padding: 1.25rem;
+                min-height: auto;
+            }
+
+            .compact-card-title {
+                font-size: 1.25rem;
+            }
+
+            .compact-highlight {
+                font-size: 1rem;
+            }
+
+            .compact-description {
+                font-size: 0.875rem;
+            }
+
+            .compact-premium-button {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+                margin: 1rem 0;
+            }
+
+            .compact-luxury-badge {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.6rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
-    This page is under development
+
+<body class=" bg-black text-white font-sans overflow-x-hidden">
+
+
+    <section class="relative min-h-screen flex items-center justify-center bg-black text-white">
+        <div class="container mx-auto px-6 text-center">
+
+            <!-- Badge -->
+            <span class="inline-flex items-center px-6 py-2 mb-10
+             rounded-full border border-yellow-400
+             text-yellow-400 text-sm font-semibold tracking-wide">
+                Contact zylohub
+            </span>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+             font-bold leading-tight mb-8">
+                Let’s Build <span class="text-yellow-400">Fair Work</span>
+                <br class="hidden sm:block" />
+                Together
+            </h1>
+
+            <!-- Divider -->
+            <div class="w-14 h-1 bg-yellow-400 mx-auto mb-10"></div>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-gray-300
+             max-w-3xl mx-auto mb-16 leading-relaxed">
+                Connecting skilled workers with fair opportunities and businesses
+                with reliable talent. Zylohub is building workforce infrastructure
+                for India - transparently, at scale.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+
+                <!-- Primary -->
+                <a href="#contact-form" class="inline-flex items-center justify-center
+               px-10 py-4 rounded-full
+               bg-yellow-400 text-black
+               font-semibold transition hover:bg-yellow-300">
+                    Contact Us
+                </a>
+
+                <!-- Secondary -->
+                <a href="#contact-cards" class="inline-flex items-center justify-center
+               px-10 py-4 rounded-full
+               border border-white/30
+               text-white font-semibold
+               transition hover:border-yellow-400 hover:text-yellow-400">
+                    Quick Actions
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Compact Premium Get Started With ZyloHub Section -->
+    <section id="contact-cards" class="py-16 premium-section-bg">
+        <div class="premium-container">
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Get Started With zylohub
+            </h2>
+
+            <!-- Desktop: Compact Premium 2x2 Grid -->
+            <div class="compact-premium-grid hidden lg:grid" data-aos="zoom-in" data-aos-delay="200">
+                <!-- Card 1: Workers -->
+                <div class="compact-premium-card" data-aos="fade-up" data-aos-delay="0">
+                    <span class="compact-luxury-badge">BETA</span>
+
+                    <div class="compact-icon-box">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+
+                    <h3 class="compact-card-title">Workers (Seekers)</h3>
+                    <div class="compact-divider"></div>
+
+                    <div class="compact-highlight">
+                        <span class="mr-2">📱</span> Get Job Alerts
+                    </div>
+
+                    <p class="compact-description">
+                        Join our exclusive waitlist to receive instant, curated job notifications matching your skills.
+                    </p>
+
+                    <div class="compact-status-row">
+                        <span class="compact-status-label">Status:</span>
+                        <span class="compact-status-value">Open for beta</span>
+                    </div>
+
+                    <button class="compact-premium-button group">
+                        Join Waitlist
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                    <div class="compact-footer">
+                        <div class="compact-footer-divider"></div>
+                        <div class="mt-4">
+                            <p class="compact-footer-label">Have Questions?</p>
+                            <span class="compact-footer-email">support@zylohub.com</span>
+                            <p class="compact-footer-response">Response: Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Businesses -->
+                <div class="compact-premium-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="compact-luxury-badge">PRO</span>
+
+                    <div class="compact-icon-box">
+                        <i class="fas fa-building"></i>
+                    </div>
+
+                    <h3 class="compact-card-title">Businesses (Hosters)</h3>
+                    <div class="compact-divider"></div>
+
+                    <div class="compact-highlight">
+                        <span class="mr-2">🏢</span> Post Your First Job
+                    </div>
+
+                    <p class="compact-description">
+                        Create premium job listings in seconds. Access verified, top-tier talent instantly.
+                    </p>
+
+                    <div class="compact-status-row">
+                        <span class="compact-status-label">Status:</span>
+                        <span class="compact-status-value">Accepting applications</span>
+                    </div>
+
+                    <button class="compact-premium-button group">
+                        Post a Job
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                    <div class="compact-footer">
+                        <div class="compact-footer-divider"></div>
+                        <div class="mt-4">
+                            <p class="compact-footer-label">Business Inquiries</p>
+                            <span class="compact-footer-email">business@zylohub.com</span>
+                            <p class="compact-footer-response">Response: Within 24-48 hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Talent -->
+                <div class="compact-premium-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="compact-luxury-badge">ELITE</span>
+
+                    <div class="compact-icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <h3 class="compact-card-title">Talent</h3>
+                    <div class="compact-divider"></div>
+
+                    <div class="compact-highlight">
+                        <span class="mr-2">👨‍💻</span> Work With Us
+                    </div>
+
+                    <p class="compact-description">
+                        Join our founding team. Help build the future of fair, premium work with cutting-edge
+                        technology.
+                    </p>
+
+                    <div class="compact-status-row">
+                        <span class="compact-status-label">Positions:</span>
+                        <span class="compact-status-value">Multiple roles open</span>
+                    </div>
+
+                    <button class="compact-premium-button group">
+                        View Careers
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                    <div class="compact-footer">
+                        <div class="compact-footer-divider"></div>
+                        <div class="mt-4">
+                            <span class="compact-footer-email">careers@zylohub.com</span>
+                            <p class="compact-footer-response">Response: Within 48-72 hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Partners -->
+                <div class="compact-premium-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="compact-luxury-badge">VIP</span>
+
+                    <div class="compact-icon-box">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+
+                    <h3 class="compact-card-title">Partners</h3>
+                    <div class="compact-divider"></div>
+
+                    <div class="compact-highlight">
+                        <span class="mr-2">🤝</span> Strategic Partnerships
+                    </div>
+
+                    <p class="compact-description">
+                        Collaborate with ZyloHub as a premium partner. Explore exclusive integration opportunities.
+                    </p>
+
+                    <div class="compact-status-row">
+                        <span class="compact-status-label">Availability:</span>
+                        <span class="compact-status-value">Limited slots</span>
+                    </div>
+
+                    <button class="compact-premium-button group">
+                        Partner With Us
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+
+                    <div class="compact-footer">
+                        <div class="compact-footer-divider"></div>
+                        <div class="mt-4">
+                            <span class="compact-footer-email">partners@zylohub.com</span>
+                            <p class="compact-footer-response">Response: Within 48 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile: Responsive grid -->
+            <div class="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up">
+                <!-- Mobile version cards -->
+                <div class="contact-card yellow-glow p-5">
+                    <div class="mb-3">
+                        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-hard-hat text-yellow-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Workers (Seekers)</h3>
+                        <div class="h-1 w-12 bg-yellow-400 mb-3"></div>
+                    </div>
+
+                    <h4 class="font-semibold text-yellow-400 mb-2">
+                        📱 Get Job Alerts
+                    </h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Join our waitlist to receive instant job notifications near you.
+                    </p>
+
+                    <div class="flex items-center mb-3">
+                        <span class="text-xs font-medium mr-2">Status:</span>
+                        <span class="text-yellow-400 text-xs font-medium">Open for beta</span>
+                    </div>
+
+                    <button class="btn-yellow w-full border-0 rounded-full text-sm py-2">
+                        Join Waitlist
+                    </button>
+
+                    <div class="mt-4 pt-4 border-t border-gray-800">
+                        <p class="text-gray-400 text-xs mb-1">Have Questions?</p>
+                        <p class="text-xs">
+                            Email: <span class="text-yellow-400">support@zylohub.com</span>
+                        </p>
+                        <p class="text-gray-400 text-xs mt-1">Response: Within 24 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-card yellow-glow p-5">
+                    <div class="mb-3">
+                        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-building text-yellow-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Businesses (Hosters)</h3>
+                        <div class="h-1 w-12 bg-yellow-400 mb-3"></div>
+                    </div>
+
+                    <h4 class="font-semibold text-yellow-400 mb-2">
+                        🏢 Post Your First Job
+                    </h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Create job listings in seconds. Find verified workers instantly.
+                    </p>
+
+                    <div class="flex items-center mb-3">
+                        <span class="text-xs font-medium mr-2">Status:</span>
+                        <span class="text-yellow-400 text-xs font-medium">Accept applications</span>
+                    </div>
+
+                    <button class="btn-yellow border-0 w-full rounded-full text-sm py-2">
+                        Post a Job
+                    </button>
+
+                    <div class="mt-4 pt-4 border-t border-gray-800">
+                        <p class="text-gray-400 text-xs mb-1">Business Inquiries</p>
+                        <p class="text-xs">
+                            Email: <span class="text-yellow-400">support@zylohub.com</span>
+                        </p>
+                        <p class="text-gray-400 text-xs mt-1">Response: Within 24-48 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-card yellow-glow p-5">
+                    <div class="mb-3">
+                        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-users text-yellow-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Talent</h3>
+                        <div class="h-1 w-12 bg-yellow-400 mb-3"></div>
+                    </div>
+
+                    <h4 class="font-semibold text-yellow-400 mb-2">👨‍💻 Work With Us</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Join our founding team. Help build the future of fair work.
+                    </p>
+
+                    <div class="flex items-center mb-3">
+                        <span class="text-xs font-medium mr-2">Positions:</span>
+                        <span class="text-yellow-400 text-xs font-medium">Multiple roles open</span>
+                    </div>
+
+                    <button class="btn-yellow border-0 w-full rounded-full text-sm py-2">
+                        View Careers
+                    </button>
+
+                    <div class="mt-4 pt-4 border-t border-gray-800">
+                        <p class="text-xs">
+                            Email: <span class="text-yellow-400">careers@zylohub.com</span>
+                        </p>
+                        <p class="text-gray-400 text-xs mt-1">Response: Within 48-72 hours</p>
+                    </div>
+                </div>
+
+                <div class="contact-card yellow-glow p-5">
+                    <div class="mb-3">
+                        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-handshake text-yellow-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Partners</h3>
+                        <div class="h-1 w-12 bg-yellow-400 mb-3"></div>
+                    </div>
+
+                    <h4 class="font-semibold text-yellow-400 mb-2">🤝 Partnerships</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Collaborate with ZyloHub. Explore integrations & opportunities.
+                    </p>
+                    <div class="flex items-center mb-3">
+                        <span class="text-xs font-medium mr-2"></span>
+                        <span class="text-yellow-400 text-xs font-medium"></span>
+                    </div>
+                    <button class="btn-yellow border-0 w-full rounded-full text-sm py-2">
+                        Partner With Us
+                    </button>
+                    <div class="mt-4 pt-4 border-t border-gray-800">
+                        <p class="text-xs">
+                            Email: <span class="text-yellow-400">business@zylohub.com</span>
+                        </p>
+                        <p class="text-gray-400 text-xs mt-1">Response: Within 48 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Channels Section -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Direct Contact Channels
+            </h2>
+
+            <!-- Desktop Table View -->
+            <div class="hidden lg:block overflow-x-auto rounded-xl border border-gray-800" data-aos="zoom-in">
+                <table class="min-w-full divide-y divide-gray-800">
+                    <thead>
+                        <tr class=" ">
+                            <th
+                                class="px-8 py-5 text-left text-sm font-semibold text-yellow-400 uppercase tracking-wider">
+                                Purpose
+                            </th>
+                            <th
+                                class="px-8 py-5 text-left text-sm font-semibold text-yellow-400 uppercase tracking-wider">
+                                Email
+                            </th>
+                            <th
+                                class="px-8 py-5 text-left text-sm font-semibold text-yellow-400 uppercase tracking-wider">
+                                Response Time
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-black divide-y divide-gray-800">
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                General Questions
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:info@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">info@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24-48 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Worker Support
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:support@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">support@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">12-24 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">Hosters</td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:support@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">support@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24-48 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Careers & Jobs
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:careers@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">careers@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">48-72 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Partnerships
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:business@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">business@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Investor Relations
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:business@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">business@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Press & Media
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:press@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">press@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">48 hrs</span>
+                            </td>
+                        </tr>
+                        <tr class="hover: /50 transition-colors">
+                            <td class="px-8 py-5 whitespace-nowrap font-medium">
+                                Technical Issues
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <a href="mailto:tech-support@zylohub.com"
+                                    class="text-yellow-400 hover:text-yellow-300 transition-colors">tech-support@zylohub.com</a>
+                            </td>
+                            <td class="px-8 py-5 whitespace-nowrap">
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">12 hrs</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Cards View -->
+            <div class="lg:hidden space-y-4" data-aos="fade-up">
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question-circle text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">General Questions</h3>
+                            <a href="mailto:info@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">info@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24-48 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-hard-hat text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Worker Support</h3>
+                            <a href="mailto:support@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">support@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">12-24 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-building text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Hosters</h3>
+                            <a href="mailto:support@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">support@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">24-48 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-user-tie text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Careers & Jobs</h3>
+                            <a href="mailto:careers@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">careers@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">48-72 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-handshake text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Partnerships</h3>
+                            <a href="mailto:business@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">business@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 text-yellow-400 rounded-full text-sm">24 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-chart-line text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Investor Relations</h3>
+                            <a href="mailto:business@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">business@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 text-yellow-400 rounded-full text-sm">24 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-newspaper text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Press & Media</h3>
+                            <a href="mailto:press@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">press@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">48 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card p-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-yellow-900/20 rounded-lg flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-tools text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-1">Technical Issues</h3>
+                            <a href="mailto:tech-support@zylohub.com"
+                                class="text-yellow-400 hover:text-yellow-300 transition-colors block mb-2">tech-support@zylohub.com</a>
+                            <div class="flex items-center">
+                                <span class="text-gray-400 text-sm mr-2">Response:</span>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">12 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office & Location Section -->
+    <section class="relative py-24 bg-black overflow-hidden">
+        <div class="container mx-auto px-4 md:px-8">
+            <!-- Section Heading with Subtle Divider -->
+            <div class="max-w-6xl mx-auto mb-20" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-easing="ease-out-cubic">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 tracking-tight">
+                    Our Location
+                </h2>
+                <div class="flex justify-center">
+                    <div class="h-px w-24 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-70">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                    <!-- Left Column: Location & Office Details -->
+                    <div class="space-y-12" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-easing="ease-out-cubic" data-aos-delay="100">
+                        <!-- Location Header -->
+                        <div>
+                            <div class="flex items-center mb-6">
+                                <div class="mr-4">
+                                    <div class="w-5 h-5 bg-yellow-400 rounded-full"></div>
+                                </div>
+                                <h3 class="text-3xl font-bold tracking-tight">
+                                    Headquarters Address
+                                </h3>
+                            </div>
+                            <div class="h-0.5 w-full bg-gradient-to-r from-yellow-400/30 to-transparent mb-8"></div>
+                        </div>
+
+                        <!-- Company Details -->
+                        <div class="space-y-8">
+                            <div class="pb-8 border-b border-gray-800/50">
+                                <h4 class="text-xl font-bold text-yellow-400 mb-3">
+                                    ZyloHub
+                                </h4>
+                                <p class="text-gray-300 text-lg">
+                                    Chennai, Tamil Nadu, India
+                                </p>
+                            </div>
+
+                            <!-- Working Model -->
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-3">Working Model</h4>
+                                    <p class="text-gray-400 leading-relaxed">
+                                        Remote-first with flexible office visits. Most team
+                                        members work from home.
+                                    </p>
+                                </div>
+
+                                <!-- Office Visits -->
+                                <div class="pt-6 border-t border-gray-800/30">
+                                    <h4 class="text-xl font-semibold mb-3">
+                                        For Office Visits:
+                                    </h4>
+                                    <p class="text-gray-400 mb-3 leading-relaxed">
+                                        Please coordinate at least 48 hours in advance via email:
+                                    </p>
+                                    <p class="text-yellow-400 text-lg font-medium">
+                                        info@zylohub.com
+                                    </p>
+                                </div>
+
+                                <!-- Timezone -->
+                                <div class="pt-6 border-t border-gray-800/30">
+                                    <h4 class="text-xl font-semibold mb-3">Timezone:</h4>
+                                    <p class="text-gray-400 text-lg">
+                                        IST (Indian Standard Time, UTC +5:30)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Mission Statement -->
+                            <div class="pt-8 mt-8 border-t border-gray-800">
+                                <p class="text-yellow-400 text-xl font-semibold italic">
+                                    We're building from India.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Vision + Business Hours -->
+                    <div class="space-y-16" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-easing="ease-out-cubic" data-aos-delay="200">
+                        <!-- Vision Section -->
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="mr-4">
+                                        <div class="w-5 h-5 bg-yellow-400 rounded-full"></div>
+                                    </div>
+                                    <h3 class="text-3xl font-bold tracking-tight">
+                                        Our Vision
+                                    </h3>
+                                </div>
+                                <div class="h-0.5 w-full bg-gradient-to-r from-yellow-400/30 to-transparent"></div>
+                            </div>
+
+                            <div class="pt-2">
+                                <p class="text-gray-300 text-lg leading-relaxed tracking-wide">
+                                    ZyloHub is redefining the future of fair work in the
+                                    blue-collar sector. By leveraging technology and community,
+                                    we're creating a platform that benefits both workers and
+                                    businesses.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Business Hours Section -->
+                        <div class="pt-12 border-t border-gray-800/50">
+                            <div class="space-y-8">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-yellow-400 mb-2">
+                                        Business Hours
+                                    </h4>
+                                    <div class="h-0.5 w-20 bg-yellow-400/50"></div>
+                                </div>
+
+                                <!-- Hours Table -->
+                                <div class="space-y-6">
+                                    <div class="flex justify-between items-center pb-4 border-b border-gray-800/30">
+                                        <span class="text-gray-300 text-lg">Monday - Friday</span>
+                                        <span class="font-semibold text-lg">9 AM - 6 PM IST</span>
+                                    </div>
+                                    <div class="flex justify-between items-center pb-4 border-b border-gray-800/30">
+                                        <span class="text-gray-300 text-lg">Saturday - Sunday</span>
+                                        <span class="font-semibold text-lg">Closed</span>
+                                    </div>
+                                </div>
+
+                                <!-- Footnote -->
+                                <div class="pt-6">
+                                    <p class="text-gray-400 text-sm italic">
+                                        * Emergency support available on weekends
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Send Us a Message
+            </h2>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="contact-card p-6 md:p-8" data-aos="zoom-in">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="name">Full Name <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" id="name" required
+                                    class="form-input w-full bg-black border border-gray-700 rounded-xl"
+                                    placeholder="Enter your full name" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="email">Email <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" id="email" required
+                                    class="form-input w-full bg-black border border-gray-700 rounded-xl"
+                                    placeholder="Enter your email address" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="phone">Phone Number (optional)</label>
+                            <input type="text" id="phone"
+                                class="form-input w-full bg-black border border-gray-700 rounded-xl"
+                                placeholder="Enter your phone number" />
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="role">I am a: <span
+                                        class="text-red-500">*</span></label>
+                                <select id="role" required
+                                    class="form-input w-full bg-black border border-gray-700 rounded-xl">
+                                    <option value="" disabled selected>Select your role</option>
+                                    <option value="worker">Worker</option>
+                                    <option value="business">Business</option>
+                                    <option value="investor">Investor</option>
+                                    <option value="media">Media</option>
+                                    <option value="partner">Partner</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="subject">Subject <span
+                                        class="text-red-500">*</span></label>
+                                <select id="subject" required
+                                    class="form-input w-full bg-black border border-gray-700 rounded-xl">
+                                    <option value="" disabled selected>Select a subject</option>
+                                    <option value="general">General Question</option>
+                                    <option value="job">Job Application</option>
+                                    <option value="business">Business Inquiry</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="technical">Technical Issue</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="message">Message <span
+                                    class="text-red-500">*</span> (50-500 characters)</label>
+                            <textarea id="message" rows="5" required
+                                class="form-input w-full bg-black border border-gray-700 rounded-xl resize-none"
+                                placeholder="Type your message here..." maxlength="500"></textarea>
+                            <div class="text-right text-sm text-gray-400 mt-1">
+                                <span id="charCount">0</span>/500 characters
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="source">How did you find us?</label>
+                                <select id="source"
+                                    class="form-input w-full bg-black border border-gray-700 rounded-xl">
+                                    <option value="" selected>Select an option</option>
+                                    <option value="google">Google</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="twitter">Twitter</option>
+                                    <option value="friend">Friend Referral</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="website">Website</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-center justify-center md:justify-end">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="subscribe"
+                                        class="w-5 h-5 mr-3 rounded bg-gray-700 border-gray-600 text-yellow-400 focus:ring-yellow-400 focus:ring-offset-gray-900" />
+                                    <label for="subscribe" class="text-sm font-medium">Subscribe to updates?</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-gray-800">
+                            <button type="submit" class="btn-yellow w-full py-3 text-lg font-semibold">
+                                Send Message
+                            </button>
+                            <p class="text-center text-gray-400 text-sm mt-4">
+                                We typically respond within 24 hours during business days.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-20 bg-black">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Common Questions
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8" id="faqAccordion">
+                <!-- Left Column -->
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="0">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                How quickly will you respond to my inquiry?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• General inquiries: 24-48 hours</li>
+                                <li>• Support issues: 12-24 hours</li>
+                                <li>• Urgent/technical: 6-12 hours</li>
+                                <li>• Weekends: Response on next business day</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="50">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                How do I apply for a job at ZyloHub?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Send your resume, portfolio, and a brief cover letter to
+                                <span class="text-yellow-400">careers@zylohub.com</span><br />
+                                Subject line format: "[Position Name] - [Your Name]"<br />
+                                We review applications within 48 hours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                When is ZyloHub launching?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Public launch is Q1 2026 in Chennai. You can join the waitlist
+                                now to get early access and be among the first 1,000 workers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                Do you accept corporate partnerships?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Yes! We're open to collaborations with businesses, platforms,
+                                and service providers.<br />
+                                Email
+                                <span class="text-yellow-400">business@zylohub.com</span> with
+                                your proposal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">Can I invest in ZyloHub?</h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                We're currently an early-stage startup and open to
+                                conversations with aligned investors. If you're interested,
+                                reach out to us with a brief introduction and we'll share more
+                                details privately at
+                                <span class="text-yellow-400">business@zylohub.com</span>
+                                with:
+                            </p>
+                            <ul class="mt-2 space-y-1 text-gray-300">
+                                <li>• Your background</li>
+                                <li>• Investment amount range</li>
+                                <li>• Why you believe in our mission</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-4">
+                    <!-- FAQ Item 6 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                What if I have feedback about the platform?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                We'd love to hear it! Email
+                                <span class="text-yellow-400">support@zylohub.com</span> with
+                                "FEEDBACK:" in the subject line. Your ideas shape our roadmap.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                How do I report a bug or technical issue?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Email
+                                <span class="text-yellow-400">support@zylohub.com</span> with:
+                            </p>
+                            <ul class="mt-2 space-y-1 text-gray-300">
+                                <li>• Description of the issue</li>
+                                <li>• Steps to reproduce it</li>
+                                <li>• Screenshot or video (if possible)</li>
+                                <li>• Device/browser info</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                Do you have a physical office to visit?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Yes, we're based in Chennai. For office visits, meetings, or
+                                tours, coordinate at least 48 hours in advance. Most team
+                                members work remotely, so advance notice helps us prepare.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                Can I speak with a founder?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                For serious inquiries (partnerships, investment, press),
+                                mention this in your email. We prioritize founder
+                                conversations based on relevance and impact.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 10 (Optional additional FAQ) -->
+                    <div class="accordion-item" data-aos="fade-up" data-aos-delay="450">
+                        <div class="accordion-header">
+                            <h3 class="text-lg font-semibold">
+                                What are your business hours?
+                            </h3>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-300">
+                                Our business hours are Monday-Friday: 9 AM - 6 PM IST.
+                                Saturdays and Sundays are closed, but we provide emergency
+                                support when needed. We typically respond to emails within 24
+                                hours even on weekends.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional: Additional Help CTA -->
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <p class="text-gray-300 mb-6">
+                    Still have questions? We're here to help!
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact-form" class="btn-yellow inline-flex items-center rounded-full">
+                        <i class="fas fa-comment-dots mr-2"></i>
+                        Contact Support
+                    </a>
+                    <a href="mailto:support@zylohub.com"
+                        class="btn-outline-yellow inline-flex items-center rounded-full">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Email Us Directly
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Time Commitment Section -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Our Response Time Commitment
+            </h2>
+
+            <!-- Desktop: Timeline/Card Layout -->
+            <div class="hidden lg:block max-w-6xl mx-auto" data-aos="zoom-in">
+                <div class="rounded-2xl p-8 border border-gray-800 mb-8">
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">
+                        Our Guarantee
+                    </h3>
+                    <p class="text-gray-300">
+                        We're committed to responsive, helpful communication with
+                        dedicated owners for each inquiry type.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-hard-hat text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Worker Support</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">12-24 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Support Team</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">support@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-briefcase text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Business Inquiry</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">24-48 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Business Lead</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">business@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-user-tie text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Career Application</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">48 hrs</span>
+                        </div>
+                        <p class="text-gray-400">HR Team</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">careers@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-handshake text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Partnership Proposal</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">24-48 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Founder</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">business@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-chart-line text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Investor Inquiry</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">24 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Founder</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">business@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-tools text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Technical Issue</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">6-12 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Tech Team</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email:
+                                <span class="text-yellow-400">tech-support@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-newspaper text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Press/Media</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">48 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Communications</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email: <span class="text-yellow-400">press@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="contact-card p-6 text-center group hover:border-yellow-400 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-yellow-900/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover: bg-gray-800 transition-all duration-300">
+                            <i class="fas fa-headset text-yellow-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">General Question</h3>
+                        <div class="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full mb-4">
+                            <span class="text-yellow-400 font-semibold">24-48 hrs</span>
+                        </div>
+                        <p class="text-gray-400">Operations</p>
+                        <div class="mt-4 pt-4 border-t border-gray-800">
+                            <p class="text-sm text-gray-500">
+                                Email: <span class="text-yellow-400">info@zylohub.com</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile: Vertical Timeline -->
+            <div class="lg:hidden" data-aos="fade-up">
+                <div class="rounded-xl p-6 border border-gray-800 mb-8">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-3">
+                        Our Guarantee
+                    </h3>
+                    <p class="text-gray-300 text-sm">
+                        We're committed to responsive, helpful communication with
+                        dedicated owners for each inquiry type.
+                    </p>
+                </div>
+
+                <div class="relative pl-8">
+                    <!-- Timeline line -->
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-800"></div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-hard-hat text-yellow-400 text-2xl"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Worker Support</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">12-24 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>Support Team</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:support@zylohub.com" class="text-yellow-400">support@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-briefcase text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Business Inquiry</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">24-48 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>Business Lead</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:business@zylohub.com" class="text-yellow-400">business@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-user-tie text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Career Application</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">48 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>HR Team</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:careers@zylohub.com" class="text-yellow-400">careers@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-handshake text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Partnership Proposal</h3>
+                                <span
+                                    class="px-3 py-1 bg-gray-800 text-yellow-400 rounded-full text-sm font-semibold">24-48
+                                    hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-crown mr-2"></i>
+                                <span>Founder</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:business@zylohub.com" class="text-yellow-400">business@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-chart-line text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Investor Inquiry</h3>
+                                <span
+                                    class="px-3 py-1 bg-gray-800 text-yellow-400 rounded-full text-sm font-semibold">24
+                                    hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-crown mr-2"></i>
+                                <span>Founder</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:business@zylohub.com" class="text-yellow-400">business@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-tools text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Technical Issue</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">6-12 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-laptop-code mr-2"></i>
+                                <span>Tech Team</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:tech-support@zylohub.com"
+                                    class="text-yellow-400">tech-support@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 7 -->
+                    <div class="relative mb-8">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-newspaper text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">Press/Media</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">48 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-bullhorn mr-2"></i>
+                                <span>Communications</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:press@zylohub.com" class="text-yellow-400">press@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 8 -->
+                    <div class="relative">
+                        <div
+                            class="absolute left-[-30px] top-0 w-8 h-8 rounded-full bg-gray-800 border-4 border-black flex items-center justify-center">
+                            <i class="fas fa-headset text-yellow-400 text-sm"></i>
+                        </div>
+                        <div class="contact-card p-5 ml-4">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-lg font-bold">General Question</h3>
+                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm font-semibold">24-48 hrs</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-sm mb-2">
+                                <i class="fas fa-cogs mr-2"></i>
+                                <span>Operations</span>
+                            </div>
+                            <div class="text-sm">
+                                <span class="text-gray-500">Email: </span>
+                                <a href="mailto:info@zylohub.com" class="text-yellow-400">info@zylohub.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note -->
+                <div class="mt-8 p-4 /50 rounded-lg border border-gray-800">
+                    <p class="text-sm text-gray-400 text-center">
+                        <i class="fas fa-info-circle text-yellow-400 mr-2"></i>
+                        Note: All times are business day estimates. Weekends may add 1
+                        business day.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press & Media Section -->
+    <section class="py-16 md:py-20 bg-black">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    <div class="contact-card p-8" data-aos="fade-right">
+                        <div class="mb-6">
+                            <div class="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fas fa-newspaper text-yellow-400 text-2xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold mb-4">Press & Media</h2>
+                            <div class="h-1 w-20 bg-yellow-400 mb-6"></div>
+                        </div>
+
+                        <p class="text-gray-300 mb-6">
+                            For Press Coverage, Stories, or Interviews, email us at:
+                        </p>
+
+                        <div class="mb-8">
+                            <p class="text-2xl font-bold text-yellow-400 mb-4">
+                                press@zylohub.com
+                            </p>
+                            <p class="text-gray-300">Please include:</p>
+                            <ul class="mt-2 space-y-2 text-gray-300">
+                                <li>• Your publication/media outlet name</li>
+                                <li>• Proposed story angle</li>
+                                <li>• Deadline</li>
+                                <li>• Preferred contact</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-6">Available for:</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Founder interviews</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Product demos</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Data/statistics sharing</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Press releases</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Feature coverage</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 rounded-xl p-6 border border-gray-800">
+                            <h4 class="text-xl font-bold text-yellow-400 mb-4">
+                                Media Kit
+                            </h4>
+                            <p class="text-gray-300 mb-4">
+                                Need logos, brand assets, or executive bios?
+                            </p>
+                            <button class="btn-yellow w-full rounded-full">
+                                Request Media Kit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Social Proof Section -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Our Community & Impact
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="stats-card text-center" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="stats-number mb-3">10,000+</div>
+                    <h3 class="text-xl font-bold mb-2">Early Adopters</h3>
+                    <p class="text-gray-300">
+                        Workers and businesses who believe in fair work
+                    </p>
+                </div>
+
+                <div class="stats-card text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stats-number mb-3">4</div>
+                    <h3 class="text-xl font-bold mb-2">Founding Team Members</h3>
+                    <p class="text-gray-300">
+                        Building the future of blue-collar staffing
+                    </p>
+                </div>
+
+                <div class="stats-card text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mb-3">
+                        <span class="stats-number">☑</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fund Raising</h3>
+                    <p class="text-gray-300">Pre-seed round to scale across India</p>
+                </div>
+
+                <div class="stats-card text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stats-number mb-3">Q1 2026</div>
+                    <h3 class="text-xl font-bold mb-2">Launch</h3>
+                    <p class="text-gray-300">
+                        Public launch in Chennai with 1,000+ workers
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Incident / Emergency Section -->
+    <section class="py-16 md:py-20 bg-black">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">
+                Urgent Issues
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                <p class="text-center text-gray-300 mb-8" data-aos="fade-up">
+                    If you encounter a critical issue, contact us immediately through
+                    the appropriate channel below:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="zoom-in">
+                    <div class="emergency-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-yellow-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">
+                                    Security Breach or Account Hacked?
+                                </h3>
+                                <p class="text-yellow-400">Email: security@zylohub.com</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">
+                            Response: Immediate (within 1 hour)
+                        </p>
+                    </div>
+
+                    <div class="emergency-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-money-bill-wave text-yellow-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Payment Not Received?</h3>
+                                <p class="text-yellow-400">Email: payments@zylohub.com</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">
+                            Subject: "URGENT: Payment Issue"<br />Response: Within 2-4 hours
+                        </p>
+                    </div>
+
+                    <div class="emergency-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-mobile-alt text-yellow-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">App Crash or Down?</h3>
+                                <p class="text-yellow-400">Email: tech-support@zylohub.com</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">
+                            Subject: "CRITICAL: App Down"<br />Response: Immediate
+                        </p>
+                    </div>
+
+                    <div class="emergency-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-exclamation-triangle text-yellow-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Safety Concern?</h3>
+                                <p class="text-yellow-400">Email: safety@zylohub.com</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">
+                            Phone: [Emergency number if applicable]<br />Response: Within 1
+                            hour
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-aos="fade-up">
+                    Let's Connect
+                </h2>
+
+                <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Whether you're a worker looking for fair opportunities, a business
+                    seeking reliable talent, an investor believing in our mission, or a
+                    partner wanting to collaborate - we're excited to hear from you.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" data-aos="zoom-in"
+                    data-aos-delay="200">
+                    <div class="contact-card p-6">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-yellow-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">General</h3>
+                        <p class="text-yellow-400">info@zylohub.com</p>
+                    </div>
+
+                    <div class="contact-card p-6">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-briefcase text-yellow-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">For Hosters / Seekers</h3>
+                        <p class="text-yellow-400">business@zylohub.com</p>
+                    </div>
+
+                    <div class="contact-card p-6">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-tie text-yellow-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">For Jobs</h3>
+                        <p class="text-yellow-400">careers@zylohub.com</p>
+                    </div>
+
+                    <div class="contact-card p-6">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-yellow-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">For Collaboration</h3>
+                        <p class="text-yellow-400">business@zylohub.com</p>
+                    </div>
+                </div>
+
+                <div class="mb-12" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-6">Find us on social media</h3>
+
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://linkedin.com/company/zylohub" target="_blank" class="social-icon yellow-glow">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/zylohub" target="_blank" class="social-icon yellow-glow">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/zylohub.app" target="_blank" class="social-icon yellow-glow">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8" data-aos="fade-up" data-aos-delay="400">
+                    <p class="text-gray-400">
+                        &copy; 2024 ZyloHub. Building the future of fair work from
+                        Chennai, India.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 100,
+            delay: 0,
+            mirror: false,
+        });
+
+        // Create animated particles for hero section
+        function createParticles() {
+            const container = document.getElementById("particles-container");
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement("div");
+                particle.classList.add("particle");
+
+                // Random properties
+                const size = Math.random() * 4 + 1;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = Math.random() * 10 + 20;
+                const opacity = Math.random() * 0.1 + 0.05;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.opacity = opacity;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Character counter for message textarea
+        document.getElementById("message").addEventListener("input", function () {
+            const charCount = this.value.length;
+            document.getElementById("charCount").textContent = charCount;
+
+            // Change color if approaching limit
+            const charCountElement = document.getElementById("charCount");
+            if (charCount < 50) {
+                charCountElement.classList.add("text-red-400");
+                charCountElement.classList.remove("text-yellow-400");
+                charCountElement.classList.remove("text-gray-400");
+            } else if (charCount > 450) {
+                charCountElement.classList.remove("text-red-400");
+                charCountElement.classList.add("text-yellow-400");
+                charCountElement.classList.remove("text-gray-400");
+            } else {
+                charCountElement.classList.remove("text-red-400");
+                charCountElement.classList.remove("text-yellow-400");
+                charCountElement.classList.add("text-gray-400");
+            }
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll(".accordion-header").forEach((header) => {
+            header.addEventListener("click", () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                const icon = header.querySelector("i");
+
+                // Toggle active class
+                accordionContent.classList.toggle("active");
+
+                // Rotate icon
+                if (accordionContent.classList.contains("active")) {
+                    icon.style.transform = "rotate(180deg)";
+                } else {
+                    icon.style.transform = "rotate(0deg)";
+                }
+            });
+        });
+
+        // Form submission handler
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Get form data
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+
+                // Basic validation
+                if (message.length < 50) {
+                    alert("Please enter a message with at least 50 characters.");
+                    return;
+                }
+
+                // In a real application, you would send this data to a server
+                // For demo purposes, we'll just show a success message
+                alert(
+                    "Thank you for your message, " +
+                    name +
+                    "! We'll respond to you at " +
+                    email +
+                    " within 24 hours."
+                );
+
+                // Reset form
+                this.reset();
+                document.getElementById("charCount").textContent = "0";
+                document
+                    .getElementById("charCount")
+                    .classList.remove("text-yellow-400", "text-red-400");
+                document.getElementById("charCount").classList.add("text-gray-400");
+            });
+
+        // Add hover effects to contact cards
+        document.querySelectorAll(".contact-card").forEach((card) => {
+            card.addEventListener("mouseenter", function () {
+                this.classList.add("yellow-glow");
+            });
+
+            card.addEventListener("mouseleave", function () {
+                this.classList.remove("yellow-glow");
+            });
+        });
+
+        // Create particles when page loads
+        window.addEventListener("load", createParticles);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
