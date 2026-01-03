@@ -854,6 +854,96 @@
 
 <body class=" bg-black text-white font-sans overflow-x-hidden">
 
+      <!-- Vertical Navbar (modern design, center right, desktop only) -->
+      <nav class="hidden md:flex flex-col items-center gap-2 fixed top-1/2 right-10 -translate-y-1/2 z-50">
+
+        <!-- Gradient vertical line, runs through dots -->
+        <div
+            class="absolute left-1/2 top-3 h-[calc(100%-2rem)] w-[3px] bg-gradient-to-b from-yellow-300 via-gray-700 to-yellow-300 rounded-full -translate-x-1/2 -z-10">
+        </div>
+
+        <!-- Nav Items: each with a dot, animates on active/hover -->
+        <a href="#hero" class="nav-dot group">
+            <span
+                class="dot flex items-center justify-center transition-all duration-300 bg-gray-700 border-2 border-gray-400 hover:border-yellow-300 h-8 w-8 rounded-full shadow cursor-pointer text-xs font-black text-yellow-200 group-active:bg-yellow-400"
+                data-label="zylohub">Z</span>
+        </a>
+        <a href="#mission" class="nav-dot group"><span class="dot" data-label="Core Message">M</span></a>
+        <a href="#problem" class="nav-dot group"><span class="dot" data-label="The Problem">P</span></a>
+        <a href="#how" class="nav-dot group"><span class="dot" data-label="How it works">H</span></a>
+        <a href="#different" class="nav-dot group"><span class="dot" data-label="Different">D</span></a>
+        <a href="#story" class="nav-dot group"><span class="dot" data-label="Story">S</span></a>
+        <a href="#team" class="nav-dot group"><span class="dot" data-label="Team">T</span></a>
+        <a href="#traction" class="nav-dot group"><span class="dot" data-label="Traction">TR</span></a>
+        <a href="#roadmap" class="nav-dot group"><span class="dot" data-label="Roadmap">R</span></a>
+        <a href="#value" class="nav-dot group"><span class="dot" data-label="Value">V</span></a>
+        <a href="#impact" class="nav-dot group"><span class="dot" data-label="Impact">I</span></a>
+        <a href="#comparision" class="nav-dot group"><span class="dot" data-label="comparision">C</span></a>
+        <a href="#cta" class="nav-dot group"><span class="dot" data-label="cta">CT</span></a>
+        <a href="#footer" class="nav-dot group"><span class="dot" data-label="Footer">F</span></a>
+    </nav>
+
+
+    <!-- ===== NAVBAR ===== -->
+    <nav
+        class="fixed top-0 left-0 w-full h-20 bg-black/60 backdrop-blur-md border-b border-white/10 z-50 transition-all">
+        <div class="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between bg-black/60 ">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 cursor-pointer">
+                <img src="https://zylohub.com/logo.png" alt="ZyloHub Logo" class="w-12 h-12">
+                <!-- <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span> -->
+            </a>
+
+            <!-- ===== DESKTOP NAV LINKS ===== -->
+            <ul class="hidden md:flex items-center gap-8">
+                <li><a href="https://zylohub.com" class="text-white hover:text-[#FFD02B] transition">zylohub</a></li>
+                <li><a href="https://zylohub.com/about-us.html"
+                        class="text-white hover:text-[#FFD02B] transition">About</a>
+                </li>
+                <li><a href="https://zylohub.com/career.html"
+                        class="text-white hover:text-[#FFD02B] transition">Career</a></li>
+                <li><a href="https://zylohub.com/blog.html" class="text-white hover:text-[#FFD02B] transition">Blog</a>
+                </li>
+                <li><a href="https://zylohub.com/contact-us.html"
+                        class="text-white hover:text-[#FFD02B] transition">Contact</a>
+                </li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="#waitlist"
+                class="hidden md:inline-block bg-[#FFD02B] text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-white hover:-translate-y-0.5 hover:shadow-lg transition-all">
+                Join Waitlist
+            </a>
+
+            <!-- ===== MOBILE MENU TOGGLE ===== -->
+            <button id="mobileMenuBtn"
+                class="md:hidden flex flex-col bg-black  justify-center items-center gap-[6px] w-10 h-10 text-white focus:outline-none transition">
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+                <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+
+        <!-- ===== MOBILE MENU ===== -->
+        <div id="mobileMenu"
+            class="absolute top-20 left-0 w-full bg-black/95 backdrop-blur-md border-t border-white/10 hidden flex-col items-center gap-6 py-8 transition-all">
+            <a href="https://zylohub.com" class="text-white text-lg hover:text-[#FFD02B] transition">Zylohub</a>
+            <a href="https://zylohub.com/about-us.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">About</a>
+            <a href="https://zylohub.com/career.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">Career</a>
+            <a href="https://zylohub.com/blog.html" class="text-white text-lg hover:text-[#FFD02B] transition">Blog</a>
+            <a href="https://zylohub.com/contact-us.html"
+                class="text-white text-lg hover:text-[#FFD02B] transition">Contact</a>
+            <a href="#waitlist"
+                class="bg-[#FFD02B] text-black font-semibold py-3 px-6 rounded-full shadow hover:bg-white transition-all">
+                Join Waitlist
+            </a>
+        </div>
+    </nav>
+
+
 
     <section class="relative min-h-screen flex items-center justify-center bg-black text-white">
         <div class="container mx-auto px-6 text-center">
