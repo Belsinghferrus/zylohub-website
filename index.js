@@ -121,6 +121,7 @@ document.querySelectorAll('[data-animate]').forEach(el => HosterObserver.observe
 
 
 
+
 // ========================================
 // FAQ ACCORDION LOGIC
 // ========================================

@@ -316,64 +316,71 @@
 
 
 
-
   <section id="message" class="w-full bg-black py-20 px-2 flex flex-col items-center justify-center"
-    style="background-image: url('/assets/images/message-background.jpg'); background-size: cover; background-position: center;">
+  style="background-image: url('/assets/images/message-background.jpg'); background-size: cover; background-position: center;">
 
-    <div class="flex items-center justify-center w-full my-8">
-      <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
-        style="backdrop-filter: blur(2px);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-white" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="1">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M12 3.3l2.2 6.7H21l-5.3 3.9 2.1 6.7L12 16.8l-5.3 3.8 2.1-6.7L3 10h6.8L12 3.3z" />
-        </svg>
-        The core message
+  <!-- Badge -->
+  <div class="flex items-center justify-center w-full my-8">
+    <span class="flex items-center px-7 py-2 rounded-full bg-[#18181a]/90 shadow text-md font-semibold text-white"
+      style="backdrop-filter: blur(2px);">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="1">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 3.3l2.2 6.7H21l-5.3 3.9 2.1 6.7L12 16.8l-5.3 3.8 2.1-6.7L3 10h6.8L12 3.3z" />
+      </svg>
+      Why Zylohub
+    </span>
+  </div>
+
+  <!-- Headline -->
+  <h2 class="text-white text-3xl md:text-6xl font-extrabold text-center mb-14 max-w-6xl tracking-tight">
+    Blue-collar hiring that's <span class="text-[#FFD02B]">fast, local,</span>
+    <span class="inline-block mt-2 text-white">and radically fair</span>
+  </h2>
+
+  <!-- Stats -->
+  <div class="w-full max-w-3xl grid grid-cols-1 md:grid-row-3 gap-10 md:gap-0">
+
+    <!-- Stat 1 -->
+    <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
+      <span class="text-4xl md:text-5xl font-extrabold text-white">5%</span>
+      <span class="mt-2 text-gray-400 text-lg font-medium text-center">
+        <span class="block text-[#FFD02B] font-bold text-center">Platform Fee - That's It</span>
+        Industry charges 15-25%. We charge 5%, deducted only when you earn.
       </span>
     </div>
 
-    <!-- Headline -->
-    <h2 class="text-white text-3xl md:text-6xl font-extrabold text-center mb-14 max-w-6xl tracking-tight">
-      We connect businesses with <span class="text-[#FFD02B]">nearby skilled talent</span>
-      <span class="inline-block mt-2 text-white">instantly</span>
-    </h2>
-
-    <!-- Stats - inspired, but use your own data or icons here if needed -->
-    <div class="w-full max-w-3xl grid grid-cols-1 md:grid-row-3 gap-10 md:gap-0">
-      <!-- Middleman -->
-      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
-        <span class="text-4xl md:text-5xl font-extrabold text-white">0%</span>
-        <span class="mt-2 text-gray-400 text-lg font-medium">
-          <span class="block text-[#FFD02B] font-bold text-center">Middlemen</span>
-          We never take a cut
-        </span>
-      </div>
-      <!-- Divider (desktop only) -->
-      <div class="flex justify-center items-center">
-        <div class="w-px h-16 bg-[#FFD02B]/40"></div>
-      </div>
-      <!-- Commissions -->
-      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
-        <span class="text-4xl md:text-5xl font-extrabold text-white">₹0</span>
-        <span class="mt-2 text-gray-400 text-lg font-medium">
-          <span class="block text-[#FFD02B] font-bold text-center">Commissions</span>
-          Businesses keep what they pay
-        </span>
-      </div>
-      <!-- Divider (desktop only) -->
-      <div class="flex justify-center items-center">
-        <div class="w-px h-16 bg-[#FFD02B]/40"></div>
-      </div>
-      <!-- Fast/Fair -->
-      <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
-        <span class="text-4xl md:text-5xl font-extrabold text-white">Instant</span>
-        <span class="mt-2 text-gray-400 text-lg font-medium">
-          <span class="block text-[#FFD02B] font-bold text-center">Fair &amp; Fast</span>
-          Financially transparent, always quick
-        </span>
-      </div>
+    <!-- Divider -->
+    <div class="flex justify-center items-center">
+      <div class="w-px h-16 bg-[#FFD02B]/40"></div>
     </div>
-  </section>
+
+    <!-- Stat 2 -->
+    <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
+      <span class="text-4xl md:text-5xl font-extrabold text-white">₹0</span>
+      <span class="mt-2 text-gray-400 text-lg font-medium text-center">
+        <span class="block text-[#FFD02B] font-bold text-center">To Post a Job</span>
+        Businesses hire at zero upfront cost. No subscriptions, no listing fees.
+      </span>
+    </div>
+
+    <!-- Divider -->
+    <div class="flex justify-center items-center">
+      <div class="w-px h-16 bg-[#FFD02B]/40"></div>
+    </div>
+
+    <!-- Stat 3 -->
+    <div data-aos="flip-right" class="flex flex-col items-center px-6 md:px-0">
+      <span class="text-4xl md:text-5xl font-extrabold text-white">&lt;100 min</span>
+      <span class="mt-2 text-gray-400 text-lg font-medium text-center">
+        <span class="block text-[#FFD02B] font-bold text-center">Match Time</span>
+        Post a job, Confirm the seeker for the job.
+      </span>
+    </div>
+
+  </div>
+</section>
+
 
 
 
@@ -559,8 +566,8 @@
       <div class="w-fit mx-auto px-6 py-8 mt-10 mb-5">
         <div
           class="text-white py-10 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-center  relative">
-          0% commission<br /> <br>
-          <span class="text-yellow-400 font-bold">workers keep what they earn</span>, and businesses save more.
+          5% Success Fee<br /> <br>
+          <span class="text-yellow-400 font-bold">workers get what they earn</span>, and businesses save more.
           <span class="block mx-auto mt-3 h-[2px] w-16 bg-yellow-400 rounded-full animate-miniline"></span>
         </div>
       </div>
@@ -717,7 +724,7 @@
       <h2 class="text-2xl font-semibold mb-6 text-yellow-400">Key Benefits</h2>
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
         <div class="p-4 border border-gray-700 rounded-2xl hover:border-yellow-400 transition">
-          <p class="font-bold text-lg">0% Commission</p>
+          <p class="font-bold text-lg">5% Success Fee</p>
           <p class="text-sm text-gray-400 mt-1">Save your money on commission</p>
         </div>
         <div class="p-4 border border-gray-700 rounded-2xl hover:border-yellow-400 transition">
@@ -816,7 +823,7 @@
       <h3 class="text-yellow-400 text-sm uppercase tracking-widest font-bold mb-5 text-center">Key benefits</h3>
       <ul class="grid gap-4 md:grid-cols-2 text-base md:text-lg">
         <li class="border border-yellow-400/40 rounded-lg py-3 px-5 flex items-center gap-3 bg-yellow-400/10 shadow-sm">
-          <span class="text-yellow-300 font-bold">0% commission</span> (you keep what you earn)
+          <span class="text-yellow-300 font-bold">5% Success Fee</span> (you get what you earn)
         </li>
         <li class="border border-yellow-400/40 rounded-lg py-3 px-5 flex items-center gap-3 bg-yellow-400/10 shadow-sm">
           Nearby jobs, updated in real time
@@ -1178,10 +1185,10 @@
           <div class="relative z-10">
             <div class="flex items-center gap-3 mb-4">
               <span class="text-3xl">💰</span>
-              <h3 class="text-2xl font-bold">0% Commission</h3>
+              <h3 class="text-2xl font-bold">5% Success Fee</h3>
             </div>
             <p class="text-gray-400 leading-relaxed">
-              You keep every rupee you earn. No middlemen. No hidden fees.
+              You get what you earn. No middlemen. 
             </p>
           </div>
         </div>
