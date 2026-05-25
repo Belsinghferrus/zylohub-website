@@ -138,86 +138,47 @@ tailwind.config = {
 <body>
 
 <!-- NAV -->
-<nav class="hidden md:flex flex-col items-center gap-2 fixed top-1/2 right-10 -translate-y-1/2 z-50">
-
-  <!-- Gradient vertical line, runs through dots -->
-  <div
-    class="absolute left-1/2 top-3 h-[calc(100%-2rem)] w-[3px] bg-gradient-to-b from-yellow-300 via-gray-700 to-yellow-300 rounded-full -translate-x-1/2 -z-10">
-  </div>
-
-  <!-- Nav Items: each with a dot, animates on active/hover -->
-  <a href="#hero" class="nav-dot group">
-    <span
-      class="dot flex items-center justify-center transition-all duration-300 bg-gray-700 border-2 border-gray-400 hover:border-yellow-300 h-8 w-8 rounded-full shadow cursor-pointer text-xs font-black text-yellow-200 group-active:bg-yellow-400"
-      data-label="zylohub">Z</span>
-  </a>
-  <a href="#message" class="nav-dot group"><span class="dot" data-label="Core Message">M</span></a>
-  <a href="#problem" class="nav-dot group"><span class="dot" data-label="The Problem">P</span></a>
-  <a href="#solution" class="nav-dot group"><span class="dot" data-label="The Solution">S</span></a>
-  <a href="#about" class="nav-dot group"><span class="dot" data-label="About Us">A</span></a>
-  <a href="#hoster" class="nav-dot group"><span class="dot" data-label="Hoster">H</span></a>
-  <a href="#seeker" class="nav-dot group"><span class="dot" data-label="Seeker">Se</span></a>
-  <a href="#working" class="nav-dot group"><span class="dot" data-label="How it works">Hw</span></a>
-  <a href="#features" class="nav-dot group"><span class="dot" data-label="Key Features">F</span></a>
-  <a href="#waitlist" class="nav-dot group"><span class="dot" data-label="Waitlist">W</span></a>
-  <a href="#faq" class="nav-dot group"><span class="dot" data-label="FAQ">Q</span></a>
-  <a href="#footer" class="nav-dot group"><span class="dot" data-label="Footer">Fo</span></a>
-</nav>
-
-
-<!-- Fixed Navigation Bar -->
-<!-- ===== NAVBAR ===== -->
-<nav class="fixed top-0 left-0 w-full h-20 bg-black/60 backdrop-blur-md border-b border-white/10 z-50 transition-all">
-  <div class="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between bg-black/60 ">
-
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
     <!-- Logo -->
-    <a href="#home" class="flex items-center gap-3 cursor-pointer">
-      <img src="https://zylohub.com/logo.png" alt="ZyloHub Logo" class="w-12 h-12">
-      <!-- <span class="font-extrabold text-xl tracking-wide text-white">zylohub</span> -->
+    <a href="#" class="flex items-center gap-3 no-underline">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Zylohub logo">
+        <rect width="34" height="34" rx="7" fill="#E8B84B"/>
+        <path d="M7 9h13L10 25h13" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.1rem;color:#f0ede8;">zylohub</span>
     </a>
 
-    <!-- ===== DESKTOP NAV LINKS ===== -->
-    <ul class="hidden md:flex items-center gap-8">
-      <li><a href="https://zylohub.com" class="text-white hover:text-[#FFD02B] transition">Zylohub</a></li>
-      <li><a href="https://zylohub.com/about-us.html" class="text-white hover:text-[#FFD02B] transition">About</a>
-      </li>
-      <li><a href="https://zylohub.com/career.html" class="text-white hover:text-[#FFD02B] transition">Career</a></li>
-      <li><a href="https://zylohub.com/blog.html" class="text-white hover:text-[#FFD02B] transition">Blog</a></li>
-      <li><a href="https://zylohub.com/contact-us.html" class="text-white hover:text-[#FFD02B] transition">Contact</a>
-      </li>
-    </ul>
+    <!-- Desktop Nav -->
+    <div class="desktop-nav flex items-center gap-8">
+      <a href="#how-it-works" class="text-sm text-zinc-400 hover:text-gold transition-colors no-underline">How it works</a>
+      <a href="#users" class="text-sm text-zinc-400 hover:text-gold transition-colors no-underline">Users</a>
+      <a href="#payments" class="text-sm text-zinc-400 hover:text-gold transition-colors no-underline">Payments</a>
+      <a href="#legal" class="text-sm text-zinc-400 hover:text-gold transition-colors no-underline">Legal</a>
+      <a href="#faq" class="text-sm text-zinc-400 hover:text-gold transition-colors no-underline">FAQ</a>
+    </div>
 
-    <!-- CTA Button -->
-    <a href="#waitlist"
-      class="hidden md:inline-block bg-[#FFD02B] text-black py-3 px-7 rounded-full font-bold text-base shadow hover:bg-white hover:-translate-y-0.5 hover:shadow-lg transition-all">
-      Join Waitlist
-    </a>
-
-    <!-- ===== MOBILE MENU TOGGLE ===== -->
-    <button id="mobileMenuBtn"
-      class="md:hidden flex flex-col bg-black  justify-center items-center gap-[6px] w-10 h-10 text-white focus:outline-none transition">
-      <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
-      <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
-      <span class="block w-6 h-[2px] bg-white transition-all duration-300"></span>
-    </button>
+    <!-- CTA + Mobile toggle -->
+    <div class="flex items-center gap-3">
+      <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="btn-gold text-sm hidden md:inline-block">Join Waitlist</a>
+      <button class="mobile-toggle flex flex-col gap-1.5 p-2" aria-label="Open menu" id="menuBtn">
+        <span class="block w-5 h-0.5 bg-zinc-400" id="bar1"></span>
+        <span class="block w-5 h-0.5 bg-zinc-400" id="bar2"></span>
+        <span class="block w-5 h-0.5 bg-zinc-400" id="bar3"></span>
+      </button>
+    </div>
   </div>
 
-  <!-- ===== MOBILE MENU ===== -->
-  <div id="mobileMenu"
-    class="absolute top-20 left-0 w-full bg-black/95 backdrop-blur-md border-t border-white/10 hidden flex-col items-center gap-6 py-8 transition-all">
-    <a href="https://zylohub.com" class="text-white text-lg hover:text-[#FFD02B] transition">Zylohub</a>
-    <a href="https://zylohub.com/about-us.html" class="text-white text-lg hover:text-[#FFD02B] transition">About</a>
-    <a href="https://zylohub.com/career.html" class="text-white text-lg hover:text-[#FFD02B] transition">Career</a>
-    <a href="https://zylohub.com/blog.html" class="text-white text-lg hover:text-[#FFD02B] transition">Blog</a>
-    <a href="https://zylohub.com/contact-us.html"
-      class="text-white text-lg hover:text-[#FFD02B] transition">Contact</a>
-    <a href="#waitlist"
-      class="bg-[#FFD02B] text-black font-semibold py-3 px-6 rounded-full shadow hover:bg-white transition-all">
-      Join Waitlist
-    </a>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu flex-col gap-1 px-6 pb-4 border-t border-white/5" id="mobileMenu">
+    <a href="#how-it-works" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">How it works</a>
+    <a href="#users" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">Users</a>
+    <a href="#payments" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">Payments</a>
+    <a href="#legal" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">Legal</a>
+    <a href="#faq" class="block py-3 text-sm text-zinc-300 no-underline">FAQ</a>
+    <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="btn-gold mt-3 text-center text-sm">Join Waitlist</a>
   </div>
 </nav>
-
 
 <!-- HERO -->
 <section class="relative pt-40 pb-24 overflow-hidden">
@@ -698,226 +659,55 @@ tailwind.config = {
 </section>
 
 <!-- FOOTER -->
-<footer id="footer" class="w-full bg-[#000000] border-t border-gray-800 py-20">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Main Footer Grid - 4 Columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-      <!-- Column 1: Brand & Description -->
-      <div class="lg:col-span-1">
-        <div class="mb-6">
-          <img src="/assets/images/logo.png" alt="ZyloHub Logo" class="w-10 h-10">
-          <h3 class="text-3xl font-bold text-white mb-4">zylohub</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Making the world a better place through connecting businesses with skilled blue-collar workers.
-          </p>
+<footer class="border-t py-12" style="border-color:rgba(232,184,75,0.1);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+      <div>
+        <a href="#" class="flex items-center gap-2 no-underline mb-3">
+          <svg width="28" height="28" viewBox="0 0 34 34" fill="none">
+            <rect width="34" height="34" rx="7" fill="#E8B84B"/>
+            <path d="M7 9h13L10 25h13" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;">zylohub</span>
+        </a>
+        <p class="text-sm text-zinc-500 max-w-xs">India's on-demand staffing marketplace. Connecting businesses with skilled talent — instantly, fairly, transparently.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Platform</div>
+          <div class="flex flex-col gap-2">
+            <a href="#how-it-works" class="text-zinc-500 hover:text-gold transition-colors no-underline">How it works</a>
+            <a href="#users" class="text-zinc-500 hover:text-gold transition-colors no-underline">Hosters</a>
+            <a href="#users" class="text-zinc-500 hover:text-gold transition-colors no-underline">Seekers</a>
+            <a href="#payments" class="text-zinc-500 hover:text-gold transition-colors no-underline">Payments</a>
+          </div>
         </div>
-
-        <!-- Social Media Icons -->
-        <div class="flex gap-4">
-          <a href="#facebook" class="text-gray-400 hover:text-yellow-400 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/zylohub_/" class="text-gray-400 hover:text-yellow-400 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-            </svg>
-          </a>
-          <a href="#twitter" class="text-gray-400 hover:text-yellow-400 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-          <a href="#github" class="text-gray-400 hover:text-yellow-400 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-          </a>
-          <a href="#youtube" class="text-gray-400 hover:text-yellow-400 transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-          </a>
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Company</div>
+          <div class="flex flex-col gap-2">
+            <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-gold transition-colors no-underline">About</a>
+            <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-gold transition-colors no-underline">Blog</a>
+            <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-gold transition-colors no-underline">Careers</a>
+            <a href="mailto:support@zylohub.com" class="text-zinc-500 hover:text-gold transition-colors no-underline">Contact</a>
+          </div>
         </div>
-      </div>
-
-      <!-- Column 2: Product -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Product</h4>
-        <ul class="space-y-3">
-          <li><a href="#features" class="text-gray-400 hover:text-white text-sm transition-colors">Features</a></li>
-          <li><a href="#pricing" class="text-gray-400 hover:text-white text-sm transition-colors">Pricing</a></li>
-          <li><a href="#integrations" class="text-gray-400 hover:text-white text-sm transition-colors">Integrations</a>
-          </li>
-          <li><a href="#api" class="text-gray-400 hover:text-white text-sm transition-colors">API</a></li>
-          <li><a href="#mobile-app" class="text-gray-400 hover:text-white text-sm transition-colors">Mobile App</a></li>
-          <li><a href="#updates" class="text-gray-400 hover:text-white text-sm transition-colors">Product Updates</a>
-          </li>
-          <li><a href="#roadmap" class="text-gray-400 hover:text-white text-sm transition-colors">Roadmap</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Platform -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Platform</h4>
-        <ul class="space-y-3">
-          <li><a href="#for-workers" class="text-gray-400 hover:text-white text-sm transition-colors">For Workers</a>
-          </li>
-          <li><a href="#for-businesses" class="text-gray-400 hover:text-white text-sm transition-colors">For
-              Businesses</a></li>
-          <li><a href="#categories" class="text-gray-400 hover:text-white text-sm transition-colors">Job Categories</a>
-          </li>
-          <li><a href="#how-it-works" class="text-gray-400 hover:text-white text-sm transition-colors">How It Works</a>
-          </li>
-          <li><a href="#safety" class="text-gray-400 hover:text-white text-sm transition-colors">Safety & Trust</a></li>
-          <li><a href="#payments" class="text-gray-400 hover:text-white text-sm transition-colors">Payments</a></li>
-          <li><a href="#verification" class="text-gray-400 hover:text-white text-sm transition-colors">Verification</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Company & Support -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Company</h4>
-        <ul class="space-y-3 mb-6">
-          <li><a href="#about" class="text-gray-400 hover:text-white text-sm transition-colors">About Us</a></li>
-          <li><a href="#blog" class="text-gray-400 hover:text-white text-sm transition-colors">Blog</a></li>
-          <li><a href="#careers" class="text-gray-400 hover:text-white text-sm transition-colors">Careers</a></li>
-          <li><a href="#press" class="text-gray-400 hover:text-white text-sm transition-colors">Press Kit</a></li>
-          <li><a href="#partners" class="text-gray-400 hover:text-white text-sm transition-colors">Partners</a></li>
-        </ul>
-
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Support</h4>
-        <ul class="space-y-3">
-          <li><a href="#help-center" class="text-gray-400 hover:text-white text-sm transition-colors">Help Center</a>
-          </li>
-          <li><a href="#documentation"
-              class="text-gray-400 hover:text-white text-sm transition-colors">Documentation</a></li>
-          <li><a href="#contact" class="text-gray-400 hover:text-white text-sm transition-colors">Contact Us</a></li>
-          <li><a href="#status" class="text-gray-400 hover:text-white text-sm transition-colors">System Status</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Resources & Legal Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-gray-800">
-
-      <!-- Resources -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Resources</h4>
-        <ul class="space-y-3">
-          <li><a href="#guides" class="text-gray-400 hover:text-white text-sm transition-colors">Guides</a></li>
-          <li><a href="#tutorials" class="text-gray-400 hover:text-white text-sm transition-colors">Tutorials</a></li>
-          <li><a href="#webinars" class="text-gray-400 hover:text-white text-sm transition-colors">Webinars</a></li>
-          <li><a href="#case-studies" class="text-gray-400 hover:text-white text-sm transition-colors">Case Studies</a>
-          </li>
-          <li><a href="#community" class="text-gray-400 hover:text-white text-sm transition-colors">Community</a></li>
-        </ul>
-      </div>
-
-      <!-- Developers -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Developers</h4>
-        <ul class="space-y-3">
-          <li><a href="#api-docs" class="text-gray-400 hover:text-white text-sm transition-colors">API Documentation</a>
-          </li>
-          <li><a href="#sdk" class="text-gray-400 hover:text-white text-sm transition-colors">SDK</a></li>
-          <li><a href="#webhooks" class="text-gray-400 hover:text-white text-sm transition-colors">Webhooks</a></li>
-          <li><a href="#changelog" class="text-gray-400 hover:text-white text-sm transition-colors">Changelog</a></li>
-          <li><a href="#github" class="text-gray-400 hover:text-white text-sm transition-colors">GitHub</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Legal</h4>
-        <ul class="space-y-3">
-          <li><a href="/legal/terms-of-service.html"
-              class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-          </li>
-          <li><a href="/legal/privacy-policy.html"
-              class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-          </li>
-          <li><a href="#cookies" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a></li>
-          <li><a href="#compliance" class="text-gray-400 hover:text-white text-sm transition-colors">Compliance</a></li>
-          <li><a href="/legal/grievance.html"
-              class="text-gray-400 hover:text-white text-sm transition-colors">Grievance</a></li>
-          <li><a href="#security" class="text-gray-400 hover:text-white text-sm transition-colors">Security</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact Info -->
-      <div>
-        <h4 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Contact</h4>
-        <ul class="space-y-3">
-          <li class="text-gray-400 text-sm">Chennai, Tamil Nadu</li>
-          <li class="text-gray-400 text-sm">India</li>
-          <li><a href="mailto:support@zylohub.com"
-              class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">support@zylohub.com</a></li>
-          <li><a href="mailto:hello@zylohub.com"
-              class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">hello@zylohub.com</a></li>
-          <li><a href="https://www.zylohub.com"
-              class="text-gray-400 hover:text-yellow-400 text-sm transition-colors">www.zylohub.com</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom Section: CTA + App Download -->
-    <div class="py-12 border-b border-gray-800">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-        <!-- CTA Text -->
-        <div class="text-center lg:text-left max-w-xl">
-          <p class="text-white text-lg font-medium mb-2">
-            Ready to transform the way you work?
-          </p>
-          <p class="text-gray-400 text-sm">
-            Join thousands of workers and businesses building the future of fair employment.
-          </p>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#waitlist"
-            class="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors text-center">
-            Join the Waitlist
-          </a>
-          <a href="#download"
-            class="px-6 py-3 bg-transparent border border-gray-600 text-white font-semibold rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition-colors text-center">
-            Download App
-          </a>
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Legal</div>
+          <div class="flex flex-col gap-2">
+            <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-gold transition-colors no-underline">Privacy Policy</a>
+            <a href="https://zylohub.com" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-gold transition-colors no-underline">Terms of Service</a>
+            <a href="#legal" class="text-zinc-500 hover:text-gold transition-colors no-underline">Compliance</a>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Copyright & Bottom Links -->
-    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2 text-gray-500 text-sm">
-        <span>© 2025 ZyloHub.</span>
-        <span class="hidden md:inline">•</span>
-        <span class="italic text-gray-400">"Built for the people who build the world."</span>
-      </div>
-
-      <div class="flex items-center gap-6 text-sm">
-        <a href="#sitemap" class="text-gray-500 hover:text-white transition-colors">Sitemap</a>
-        <a href="#accessibility" class="text-gray-500 hover:text-white transition-colors">Accessibility</a>
-        <div class="flex items-center gap-2">
-          <span class="text-gray-500">Made with</span>
-          <span class="text-yellow-400">❤️</span>
-          <span class="text-gray-500">in India</span>
-        </div>
-      </div>
+    <div class="gradient-line mb-6"></div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-zinc-600">
+      <span>&copy; 2026 ZYLOHUB GLOBAL PRIVATE LIMITED. All rights reserved.</span>
+      <span>Made in Chennai, India 🇮🇳</span>
     </div>
   </div>
 </footer>
-
 
 <script>
 // FAQ Data
