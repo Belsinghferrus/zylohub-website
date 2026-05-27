@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Payments & Pricing – Zylohub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#E8B84B',
+        'gold-light': '#F5D07A',
+        'gold-muted': 'rgba(232,184,75,0.15)',
+      },
+      fontFamily: {
+        sans: ['Inter','sans-serif'],
+        display: ['Sora','sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{background:#0a0a0a;color:#e8e6e1;font-family:'Inter',sans-serif}
+  .gold{color:#E8B84B}
+  .card{background:#161614;border:1px solid rgba(232,184,75,0.12);border-radius:0.75rem}
+  .card-hover:hover{border-color:rgba(232,184,75,0.3);background:#1c1b18;transition:all 0.2s}
+  .gradient-line{height:1px;background:linear-gradient(to right,transparent,rgba(232,184,75,0.35),transparent)}
+  .nav-blur{background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,184,75,0.1)}
+  .btn-gold{background:#E8B84B;color:#0a0a0a;font-weight:700;font-family:'Sora',sans-serif;border-radius:9999px;padding:0.65rem 1.5rem;font-size:0.875rem;transition:all 0.18s;display:inline-block;text-decoration:none}
+  .btn-gold:hover{background:#F5D07A;transform:translateY(-1px)}
+  .btn-outline{border:1px solid rgba(232,184,75,0.4);color:#E8B84B;font-weight:600;font-family:'Sora',sans-serif;border-radius:9999px;padding:0.65rem 1.5rem;font-size:0.875rem;transition:all 0.18s;display:inline-block;text-decoration:none}
+  .btn-outline:hover{border-color:#E8B84B;background:rgba(232,184,75,0.06)}
+  .step-badge{width:32px;height:32px;border-radius:50%;border:1px solid rgba(232,184,75,0.35);color:#E8B84B;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;font-family:'Sora',sans-serif}
+  .ticker-track{display:flex;gap:2rem;animation:ticker 28s linear infinite;width:max-content}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .scroll-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease}
+  .scroll-reveal.visible{opacity:1;transform:translateY(0)}
+  @media(prefers-reduced-motion:reduce){.scroll-reveal{opacity:1;transform:none;transition:none}.ticker-track{animation:none}}
+  .tag{border:1px solid rgba(232,184,75,0.2);border-radius:9999px;padding:3px 14px;font-size:0.75rem;color:#9a9690}
+  @media(max-width:768px){.desktop-nav{display:none}.mobile-toggle{display:flex}}
+  @media(min-width:769px){.mobile-toggle{display:none}}
+  .mobile-menu{display:none}
+  .mobile-menu.open{display:flex}
+  td,th{text-align:left;padding:0.85rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.875rem}
+  th{font-family:'Sora',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em;color:#9a9690;font-weight:600}
+  td:last-child,th:last-child{text-align:right}
+  table{width:100%;border-collapse:collapse}
+  tr:last-child td{border-bottom:none}
+  .highlight-row td{background:rgba(232,184,75,0.04);color:#f0ede8;font-weight:600}
+  .highlight-row td:last-child{color:#E8B84B}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <rect width="34" height="34" rx="7" fill="#E8B84B"/>
+        <path d="M7 9h13L10 25h13" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.1rem;color:#f0ede8;">zylohub</span>
+    </a>
+    <div class="desktop-nav flex items-center gap-8">
+      <a href="/platform" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors no-underline">Platform</a>
+      <a href="/platform/payments" class="text-sm gold no-underline border-b" style="border-color:#E8B84B;padding-bottom:2px;">Payments</a>
+      <a href="/about" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors no-underline">About</a>
+      <a href="/contact" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors no-underline">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://zylohub.com" class="btn-gold text-sm hidden md:inline-block">Join Waitlist</a>
+      <button class="mobile-toggle flex flex-col gap-1.5 p-2" id="menuBtn" aria-label="Open menu">
+        <span class="block w-5 h-0.5 bg-zinc-400"></span>
+        <span class="block w-5 h-0.5 bg-zinc-400"></span>
+        <span class="block w-5 h-0.5 bg-zinc-400"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu flex-col gap-1 px-6 pb-4 border-t border-white/5" id="mobileMenu">
+    <a href="/platform" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">Platform</a>
+    <a href="/platform/payments" class="block py-3 text-sm gold border-b border-white/5 no-underline">Payments</a>
+    <a href="/about" class="block py-3 text-sm text-zinc-300 border-b border-white/5 no-underline">About</a>
+    <a href="/contact" class="block py-3 text-sm text-zinc-300 no-underline">Contact</a>
+    <a href="https://zylohub.com" class="btn-gold mt-3 text-center text-sm block">Join Waitlist</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="relative pt-40 pb-20 overflow-hidden">
+  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,184,75,0.07) 0%,transparent 70%);top:-80px;left:50%;transform:translateX(-50%);pointer-events:none"></div>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-2 mb-5">
+      <a href="/platform" class="text-xs text-zinc-500 no-underline hover:text-zinc-400">Platform</a>
+      <span class="text-zinc-700">/</span>
+      <span class="text-xs gold">Payments & Pricing</span>
+    </div>
+    <h1 class="scroll-reveal" style="font-family:'Sora',sans-serif;font-size:clamp(2.2rem,4.5vw,4rem);font-weight:800;line-height:1.1;max-width:16ch;margin-bottom:1.25rem;">
+      Simple, <span class="gold">Transparent</span> Payments
+    </h1>
+    <p class="scroll-reveal text-zinc-400 mb-8" style="font-size:clamp(1rem,1.4vw,1.15rem);max-width:50ch;line-height:1.7;transition-delay:0.1s;">
+      Zylohub processes all payments through Cashfree, India's licensed payment gateway. No hidden charges. Seekers keep 100% of their earnings.
+    </p>
+    <div class="scroll-reveal flex flex-wrap gap-3" style="transition-delay:0.2s;">
+      <span class="tag">Powered by Cashfree</span>
+      <span class="tag">UPI Payouts</span>
+      <span class="tag">INR Only</span>
+      <span class="tag">KYC Verified</span>
+      <span class="tag">No Hidden Fees</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="py-4 overflow-hidden border-y" style="border-color:rgba(232,184,75,0.08);">
+  <div class="ticker-track text-sm font-medium text-zinc-500" style="user-select:none;">
+    <span>💸 Direct UPI Payouts</span><span class="gold mx-2">·</span>
+    <span>✔️ Cashfree Licensed Gateway</span><span class="gold mx-2">·</span>
+    <span>🔒 PAN KYC Verified</span><span class="gold mx-2">·</span>
+    <span>🤝 0% Seeker Commission</span><span class="gold mx-2">·</span>
+    <span>📲 Payment After Job Completion</span><span class="gold mx-2">·</span>
+    <span>🇮🇳 India Only · INR Only</span><span class="gold mx-2">·</span>
+    <span>💸 Direct UPI Payouts</span><span class="gold mx-2">·</span>
+    <span>✔️ Cashfree Licensed Gateway</span><span class="gold mx-2">·</span>
+    <span>🔒 PAN KYC Verified</span><span class="gold mx-2">·</span>
+    <span>🤝 0% Seeker Commission</span><span class="gold mx-2">·</span>
+    <span>📲 Payment After Job Completion</span><span class="gold mx-2">·</span>
+    <span>🇮🇳 India Only · INR Only</span><span class="gold mx-2">·</span>
+  </div>
+</div>
+
+<!-- HOW PAYMENT WORKS -->
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <div class="mb-14 scroll-reveal">
+    <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Payment Flow</p>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:700;">How Payment Works</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-4">
+      <div class="scroll-reveal card card-hover p-6 flex gap-4">
+        <div class="step-badge">01</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#f0ede8;margin-bottom:4px;">Hoster Sets Job Wage</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">When posting a job, the Hoster sets the wage per worker in INR. This amount is visible to all Seekers before applying.</p>
+        </div>
+      </div>
+      <div class="scroll-reveal card card-hover p-6 flex gap-4" style="transition-delay:0.05s;">
+        <div class="step-badge">02</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#f0ede8;margin-bottom:4px;">Seeker Completes KYC</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">Seekers complete PAN card KYC verification and add their UPI ID through Cashfree before applying for any job. This is a one-time process.</p>
+        </div>
+      </div>
+      <div class="scroll-reveal card card-hover p-6 flex gap-4" style="transition-delay:0.1s;">
+        <div class="step-badge">03</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#f0ede8;margin-bottom:4px;">Job Completion & OTP Verification</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">After the job is done, the Seeker's attendance is verified using a unique 4-digit OTP held by the Hoster. No work, no payment.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="scroll-reveal card card-hover p-6 flex gap-4" style="transition-delay:0.15s;">
+        <div class="step-badge">04</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#f0ede8;margin-bottom:4px;">Hoster Initiates Payment</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">The Hoster initiates the payment inside the Zylohub app. Total amount = agreed wage + 5% fee (2% Cashfree + 3% Zylohub platform commission).</p>
+        </div>
+      </div>
+      <div class="scroll-reveal card card-hover p-6 flex gap-4" style="transition-delay:0.2s;">
+        <div class="step-badge">05</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#f0ede8;margin-bottom:4px;">Cashfree Processes Payout</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">Cashfree automatically transfers the full agreed wage to the Seeker's UPI ID. Zylohub deducts only its 3% commission from the transaction.</p>
+        </div>
+      </div>
+      <div class="scroll-reveal p-6 flex gap-4" style="background:rgba(232,184,75,0.06);border:1px solid rgba(232,184,75,0.2);border-radius:0.75rem;transition-delay:0.25s;">
+        <div class="step-badge" style="border-color:rgba(232,184,75,0.6);">✓</div>
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:600;color:#E8B84B;margin-bottom:4px;">Seeker Keeps 100%</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">The Seeker receives the full agreed wage with zero deductions. The 5% fee is always paid by the Hoster on top of the wage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-line max-w-6xl mx-auto px-6"></div>
+
+<!-- PRICING -->
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <div class="mb-14 scroll-reveal">
+    <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Transparent Pricing</p>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:700;">What Does It Cost?</h2>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Seeker card -->
+    <div class="scroll-reveal card p-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3 class="gold text-xl font-bold" style="font-family:'Sora',sans-serif;">Seekers (Workers)</h3>
+      </div>
+      <div class="mb-6">
+        <div class="gold text-4xl font-bold mb-1" style="font-family:'Sora',sans-serif;">₹0</div>
+        <div class="text-zinc-400 text-sm">Platform commission</div>
+      </div>
+      <div class="flex flex-col gap-3 mb-6">
+        <div class="flex items-start gap-3 text-sm">
+          <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-zinc-300">Free to register and create an account</span>
+        </div>
+        <div class="flex items-start gap-3 text-sm">
+          <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-zinc-300">Browse and apply for jobs at no cost</span>
+        </div>
+        <div class="flex items-start gap-3 text-sm">
+          <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-zinc-300">Keep 100% of the agreed wage</span>
+        </div>
+        <div class="flex items-start gap-3 text-sm">
+          <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-zinc-300">One-time PAN KYC + UPI ID setup via Cashfree</span>
+        </div>
+      </div>
+      <div class="p-4 rounded-lg text-sm" style="background:rgba(232,184,75,0.05);border:1px solid rgba(232,184,75,0.12);">
+        <span class="text-zinc-400">Earnings are paid directly to your UPI ID after every completed job. No delays.</span>
+      </div>
+    </div>
+
+    <!-- Hoster card -->
+    <div class="scroll-reveal card p-8" style="transition-delay:0.1s;">
+      <div class="flex items-center gap-3 mb-6">
+        <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3 class="gold text-xl font-bold" style="font-family:'Sora',sans-serif;">Hosters (Employers)</h3>
+      </div>
+      <div class="mb-6">
+        <div class="gold text-4xl font-bold mb-1" style="font-family:'Sora',sans-serif;">+5%</div>
+        <div class="text-zinc-400 text-sm">On top of agreed worker wage</div>
+      </div>
+      <div class="mb-6">
+        <table>
+          <thead>
+            <tr>
+              <th>Fee Breakdown</th>
+              <th>Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-zinc-300">Agreed worker wage</td>
+              <td style="color:#f0ede8;text-align:right;">Set by Hoster (INR)</td>
+            </tr>
+            <tr>
+              <td class="text-zinc-300">Cashfree payment gateway</td>
+              <td style="color:#f0ede8;text-align:right;">2%</td>
+            </tr>
+            <tr>
+              <td class="text-zinc-300">Zylohub platform commission</td>
+              <td style="color:#f0ede8;text-align:right;">3%</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Total charged to Hoster</td>
+              <td>Wage + 5%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-start gap-3 text-sm mb-2">
+        <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-zinc-300">Free to register and post jobs</span>
+      </div>
+      <div class="flex items-start gap-3 text-sm">
+        <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-zinc-300">Payment is only triggered after job completion and OTP verification</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-line max-w-6xl mx-auto px-6"></div>
+
+<!-- PRICING EXAMPLE -->
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <div class="mb-14 scroll-reveal">
+    <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Real Examples</p>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:700;">Pricing in INR</h2>
+    <p class="text-zinc-400 mt-3 text-sm" style="max-width:52ch;">All prices are set in Indian Rupees (₹). The Hoster decides the wage per worker when posting a job. Below are example calculations.</p>
+  </div>
+
+  <div class="scroll-reveal card overflow-hidden">
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr style="background:#1c1b18;">
+            <th style="width:25%">Job Type</th>
+            <th>Wage per Worker</th>
+            <th>Cashfree Fee (2%)</th>
+            <th>Zylohub Fee (3%)</th>
+            <th>Total Hoster Pays</th>
+            <th>Seeker Receives</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-zinc-300">Event Staff</td>
+            <td class="text-zinc-200">₹500</td>
+            <td class="text-zinc-400">₹10</td>
+            <td class="text-zinc-400">₹15</td>
+            <td class="text-zinc-200 font-semibold">₹525</td>
+            <td class="gold font-semibold">₹500</td>
+          </tr>
+          <tr>
+            <td class="text-zinc-300">Hospitality</td>
+            <td class="text-zinc-200">₹800</td>
+            <td class="text-zinc-400">₹16</td>
+            <td class="text-zinc-400">₹24</td>
+            <td class="text-zinc-200 font-semibold">₹840</td>
+            <td class="gold font-semibold">₹800</td>
+          </tr>
+          <tr>
+            <td class="text-zinc-300">Cleaning</td>
+            <td class="text-zinc-200">₹400</td>
+            <td class="text-zinc-400">₹8</td>
+            <td class="text-zinc-400">₹12</td>
+            <td class="text-zinc-200 font-semibold">₹420</td>
+            <td class="gold font-semibold">₹400</td>
+          </tr>
+          <tr>
+            <td class="text-zinc-300">Security</td>
+            <td class="text-zinc-200">₹1,000</td>
+            <td class="text-zinc-400">₹20</td>
+            <td class="text-zinc-400">₹30</td>
+            <td class="text-zinc-200 font-semibold">₹1,050</td>
+            <td class="gold font-semibold">₹1,000</td>
+          </tr>
+          <tr>
+            <td class="text-zinc-300">Moving Services</td>
+            <td class="text-zinc-200">₹600</td>
+            <td class="text-zinc-400">₹12</td>
+            <td class="text-zinc-400">₹18</td>
+            <td class="text-zinc-200 font-semibold">₹630</td>
+            <td class="gold font-semibold">₹600</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="p-5 border-t text-sm text-zinc-500" style="border-color:rgba(255,255,255,0.05);">
+      * Wages shown are examples only. Actual wages are set by the Hoster per job. All amounts are in Indian Rupees (INR). Prices are not fixed; they vary based on job type, location, and Hoster's decision.
+    </div>
+  </div>
+</section>
+
+<div class="gradient-line max-w-6xl mx-auto px-6"></div>
+
+<!-- REFUND POLICY -->
+<section id="refund-and-cancellation" class="py-24 max-w-6xl mx-auto px-6">
+  <div class="mb-14 scroll-reveal">
+    <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Policy</p>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:700;">Refunds & Cancellations</h2>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="scroll-reveal card p-7">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+      </div>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:.75rem;">Job Payments are Non-Refundable</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">Once a Hoster initiates payment after job completion and OTP verification, the payment is final and non-refundable. This is because payment only happens after the physical job has been completed and confirmed — not before.</p>
+    </div>
+
+    <div class="scroll-reveal card p-7" style="transition-delay:0.05s;">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:.75rem;">Cancellation Before Job Start</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">If a Hoster cancels a job before any Seeker has been confirmed, no payment is involved and no refund is applicable. If a confirmed Seeker does not show up, the Hoster is not charged for that Seeker's slot.</p>
+    </div>
+
+    <div class="scroll-reveal card p-7" style="transition-delay:0.1s;">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:.75rem;">Platform Fees are Non-Refundable</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">The 3% Zylohub platform commission and 2% Cashfree payment gateway fee are non-refundable once a payment has been processed and the funds have been transferred to the Seeker's UPI account.</p>
+    </div>
+
+    <div class="scroll-reveal card p-7" style="transition-delay:0.15s;">
+      <div style="width:40px;height:40px;border-radius:8px;background:rgba(232,184,75,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:.75rem;">Payment Disputes</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">In the case of a genuine technical payment failure or error, users may contact <a href="mailto:support@zylohub.com" class="gold no-underline hover:underline">support@zylohub.com</a> within 48 hours of the transaction. All disputes are reviewed on a case-by-case basis.</p>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-line max-w-6xl mx-auto px-6"></div>
+
+<!-- PAYMENT PROVIDER -->
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <div class="mb-14 scroll-reveal">
+    <p class="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-3">Payment Infrastructure</p>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:700;">Powered by Cashfree</h2>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="scroll-reveal card card-hover p-6 md:col-span-3" style="border-color:rgba(232,184,75,0.2);">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.2rem;color:#f0ede8;margin-bottom:0.75rem;">Why Cashfree?</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">Cashfree Payments is a licensed Indian payment gateway regulated by the Reserve Bank of India (RBI). All wage transactions and payouts on Zylohub are processed exclusively through Cashfree, ensuring compliance with Indian financial regulations and fast UPI payouts.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="p-4 rounded-lg" style="background:#1c1b18;">
+            <div class="text-xs text-zinc-500 uppercase tracking-widest mb-1">Regulation</div>
+            <div class="text-sm font-semibold text-zinc-200">RBI Licensed Gateway</div>
+          </div>
+          <div class="p-4 rounded-lg" style="background:#1c1b18;">
+            <div class="text-xs text-zinc-500 uppercase tracking-widest mb-1">Payout Method</div>
+            <div class="text-sm font-semibold text-zinc-200">UPI (Instant)</div>
+          </div>
+          <div class="p-4 rounded-lg" style="background:#1c1b18;">
+            <div class="text-xs text-zinc-500 uppercase tracking-widest mb-1">KYC Standard</div>
+            <div class="text-sm font-semibold text-zinc-200">PAN Card Verification</div>
+          </div>
+          <div class="p-4 rounded-lg" style="background:#1c1b18;">
+            <div class="text-xs text-zinc-500 uppercase tracking-widest mb-1">Currency</div>
+            <div class="text-sm font-semibold text-zinc-200">INR Only</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-reveal card card-hover p-6" style="transition-delay:0.05s;">
+      <svg class="mb-4" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:6px;">Secure & Compliant</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">All payment data is handled by Cashfree's secure, RBI-regulated infrastructure. Zylohub never stores your raw payment credentials.</p>
+    </div>
+
+    <div class="scroll-reveal card card-hover p-6" style="transition-delay:0.1s;">
+      <svg class="mb-4" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:6px;">Instant UPI Payouts</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">Seekers receive their wages directly to their UPI ID within minutes of payment initiation. No waiting, no manual transfers.</p>
+    </div>
+
+    <div class="scroll-reveal card card-hover p-6" style="transition-delay:0.15s;">
+      <svg class="mb-4" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8B84B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+      <h3 style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;margin-bottom:6px;">No Cash, No Cheque</h3>
+      <p class="text-sm text-zinc-400 leading-relaxed">All transactions are digital and traceable. Every payment goes through Cashfree — there are no offline cash transactions on Zylohub.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <div class="scroll-reveal rounded-2xl p-12 text-center" style="background:rgba(232,184,75,0.06);border:1px solid rgba(232,184,75,0.18);">
+    <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:rgba(232,184,75,0.7);">Start Earning or Hiring</p>
+    <h2 class="mb-4" style="font-family:'Sora',sans-serif;font-size:clamp(1.6rem,2.5vw,2.5rem);font-weight:700;">Fair pay for real work.<br><span class="gold">Join Zylohub today.</span></h2>
+    <p class="text-zinc-400 mb-8 mx-auto text-sm" style="max-width:44ch;">Get on the waitlist and be among the first to experience India's most transparent on-demand staffing marketplace.</p>
+    <a href="https://zylohub.com" class="btn-gold text-base px-8 py-3">Join the Waitlist</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t py-12" style="border-color:rgba(232,184,75,0.1);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+      <div>
+        <a href="/" class="flex items-center gap-2 no-underline mb-3">
+          <svg width="28" height="28" viewBox="0 0 34 34" fill="none">
+            <rect width="34" height="34" rx="7" fill="#E8B84B"/>
+            <path d="M7 9h13L10 25h13" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;color:#f0ede8;">zylohub</span>
+        </a>
+        <p class="text-sm text-zinc-500 max-w-xs">India's on-demand staffing marketplace. Fair pay, verified workers, instant UPI payouts.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Platform</div>
+          <div class="flex flex-col gap-2">
+            <a href="/platform" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">How it works</a>
+            <a href="/platform/payments" class="gold no-underline">Payments</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Company</div>
+          <div class="flex flex-col gap-2">
+            <a href="/about" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">About</a>
+            <a href="/contact" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">Contact</a>
+            <a href="mailto:support@zylohub.com" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">Support</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-zinc-400 font-semibold mb-3">Legal</div>
+          <div class="flex flex-col gap-2">
+            <a href="/privacy" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">Privacy Policy</a>
+            <a href="/terms" class="text-zinc-500 hover:text-yellow-400 no-underline transition-colors">Terms of Service</a>
+            <a href="/platform/payments" class="gold no-underline">Refund Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gradient-line mb-6"></div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-zinc-600">
+      <span>&copy; 2026 ZYLOHUB GLOBAL PRIVATE LIMITED. All rights reserved.</span>
+      <span>Made in Chennai, India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileMenu.classList.remove("open")));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)} });
+}, { threshold: 0.08 });
+document.querySelectorAll(".scroll-reveal").forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
